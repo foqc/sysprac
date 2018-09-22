@@ -1,0 +1,93 @@
+body{
+    font-family: Roboto;
+    font-size: 13px;
+}
+
+.main-label{
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.nav-style{
+    padding: 0;
+}
+
+.navbar-brand {
+    padding-top: 0;
+    padding-bottom: .0;
+}
+
+.user-label{
+    margin-right: 15px;
+    color: white;
+}
+
+.footer{
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+    position:absolute;
+}
+
+.btn-transparent{
+    background-color: transparent;
+    color: inherit
+}
+
+.drop-default{
+    right: 0;
+    left: auto;
+}
+
+.main-container{
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.second-container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer__item{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.linea{
+    border-top: #060606 solid 2px;
+}
+
+.list-group-item{
+    border: none;
+}
+.list-group-item-color {
+    background-color: transparent;
+    color: white;
+}
+
+.list-group-item:hover{
+    background-color: #2767a4;
+    cursor: pointer;
+}
+
+.list-group{
+    background-color: #084987;
+}
+
+.container-border{
+    border: #bdc2c7 solid 15px;
+}
+
+.menu-col{
+    padding-right: 0px;
+}
+
+.praxis-title{
+    text-transform: uppercase;
+    color: #084987;
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+}
