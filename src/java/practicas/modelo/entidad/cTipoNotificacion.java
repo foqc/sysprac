@@ -10,21 +10,25 @@ package practicas.modelo.entidad;
  * @author Jhonathan
  */
 public class cTipoNotificacion {
-    private int idtiponotificacion;
+
+    private int idTipoNotificacion;
     private String nombre;
     private String descripcion;
     private boolean estado;
 
-   public cTipoNotificacion()
-   {
-   }
-
-    public int getIdtiponotificacion() {
-        return idtiponotificacion;
+    public cTipoNotificacion() {
     }
 
-    public void setIdtiponotificacion(int idtiponotificacion) {
-        this.idtiponotificacion = idtiponotificacion;
+    public cTipoNotificacion(int idTipoNotificacion) {
+        this.idTipoNotificacion = idTipoNotificacion;
+    }
+
+    public int getIdTipoNotificacion() {
+        return idTipoNotificacion;
+    }
+
+    public void setIdTipoNotificacion(int idTipoNotificacion) {
+        this.idTipoNotificacion = idTipoNotificacion;
     }
 
     public String getNombre() {
@@ -49,6 +53,6 @@ public class cTipoNotificacion {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
-    }           
-    
+    }
+
 }

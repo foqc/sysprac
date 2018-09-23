@@ -19,6 +19,10 @@ public class cTipoPractica {
     public cTipoPractica() {
     }
 
+    public cTipoPractica(int idTipoPractica) {
+        this.idTipoPractica = idTipoPractica;
+    }
+
     public int getIdTipoPractica() {
         return idTipoPractica;
     }

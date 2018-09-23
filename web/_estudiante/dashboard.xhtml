@@ -28,11 +28,11 @@
                     <h:inputText  id="nombreEmpresa"  class="form-control" value="#{controladorPractica.objPractica.empresa}"/>
                 </div>
                 <div class="form-group">
-                    <label for="nombreEmpresa" class="font-weight-bold">Tipo de Práctica:</label>
+
+                    <label for="tipoPractica" class="font-weight-bold">Tipo de Práctica:</label>
                     <h:selectOneMenu  class="form-group" value="#{controladorPractica.objPractica.objTipoPractica.idTipoPractica}">
-                        <f:selectItem class="form-group" itemValue="1" itemLabel="Prácticas"  />
-                        <f:selectItem class="form-group" itemValue="2" itemLabel="Pasantías" /> 
-                         <f:selectItem class="form-group" itemValue="3" itemLabel="Proyectos Investigación" /> 
+                        <f:selectItem itemLabel="Seleccione un Tipo Práctica" itemValue=""  noSelectionOption="true"/>
+                        <f:selectItems value="#{items.selectOneItems}" />
                     </h:selectOneMenu>
                 </div>
                 <h:commandButton class="btn-btn btn-primary btn-lg active" value="Guardar" action="#{controladorPractica.insertar()}"/>

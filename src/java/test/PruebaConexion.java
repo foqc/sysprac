@@ -55,6 +55,7 @@ public class PruebaConexion {
                     propiedades.getDriver());//"org.postgresql.Driver");
 
             result = instance.conectarBD();
+            result=instance.desconectarBD();
             
 
             if (!result) {

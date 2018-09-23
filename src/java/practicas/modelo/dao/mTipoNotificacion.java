@@ -28,7 +28,7 @@ public class mTipoNotificacion {
             ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
             while (rs.next()) {
                 cTipoNotificacion obj = new cTipoNotificacion();
-                obj.setIdtiponotificacion(rs.getInt("idtiponotificacion"));
+                obj.setIdTipoNotificacion(rs.getInt("idtiponotificacion"));
                 obj.setNombre(rs.getString("nombre"));
                 obj.setDescripcion(rs.getString("descripcion"));
                 obj.setEstado(rs.getBoolean("estado"));
@@ -49,7 +49,7 @@ public class mTipoNotificacion {
         ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
         try {
             while (rs.next()) {
-                obj.setIdtiponotificacion(rs.getInt("idtiponotificacion"));
+                obj.setIdTipoNotificacion(rs.getInt("idtiponotificacion"));
                 obj.setNombre(rs.getString("nombre"));
                 obj.setDescripcion(rs.getString("descripcion"));
                 obj.setEstado(rs.getBoolean("estado"));

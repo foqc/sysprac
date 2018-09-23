@@ -10,22 +10,24 @@ package practicas.modelo.entidad;
  * @author Jhonathan
  */
 public class cEstadoNotificacion {
-    private int idestadonotificacion;
+
+    private int idEstadoNotificacion;
     private String nombre;
     private boolean estado;
 
-    public cEstadoNotificacion(int idestadonotificacion, String nombre, boolean estado) {
-        this.idestadonotificacion = idestadonotificacion;
-        this.nombre = nombre;
-        this.estado = estado;
+    public cEstadoNotificacion() {
     }
 
-    public int getIdestadonotificacion() {
-        return idestadonotificacion;
+    public cEstadoNotificacion(int idEstadoNotificacion) {
+        this.idEstadoNotificacion = idEstadoNotificacion;
     }
 
-    public void setIdestadonotificacion(int idestadonotificacion) {
-        this.idestadonotificacion = idestadonotificacion;
+    public int getIdEstadoNotificacion() {
+        return idEstadoNotificacion;
+    }
+
+    public void setIdEstadoNotificacion(int idEstadoNotificacion) {
+        this.idEstadoNotificacion = idEstadoNotificacion;
     }
 
     public String getNombre() {
@@ -42,5 +44,6 @@ public class cEstadoNotificacion {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
-    }    
+    }
+
 }

@@ -42,7 +42,7 @@ public class PruebaServicios {
             
             
             cTipoNotificacion objTipoNotificacion = new cTipoNotificacion();
-            objTipoNotificacion.setIdtiponotificacion(1);
+            objTipoNotificacion.setIdTipoNotificacion(1);
             objTipoNotificacion.setNombre("SolicitudPractica");
             
             obj=new cNotificacion();

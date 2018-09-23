@@ -31,9 +31,9 @@ public class mTipoPractica {
             ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
             while (rs.next()) {
                 cTipoPractica obj = new cTipoPractica();
-              obj.setIdTipoPractica(rs.getInt("idtipopractica"));
-                obj.setCodigo(rs.getString("nombre"));
-                obj.setNombre(rs.getString("codigo"));
+                obj.setIdTipoPractica(rs.getInt("idtipopractica"));
+                obj.setCodigo(rs.getString("codigo"));
+                obj.setNombre(rs.getString("nombre"));
                 obj.setEstado(rs.getBoolean("estado"));
                 lista.add(obj);
             }
@@ -57,8 +57,8 @@ public class mTipoPractica {
             while (rs.next()) {
                 cTipoPractica obj = new cTipoPractica();
                 obj.setIdTipoPractica(rs.getInt("idtipopractica"));
-                obj.setCodigo(rs.getString("nombre"));
-                obj.setNombre(rs.getString("codigo"));
+                obj.setCodigo(rs.getString("codigo"));
+                obj.setNombre(rs.getString("nombre"));
                 obj.setEstado(rs.getBoolean("estado"));
                 lista.add(obj);
             }
