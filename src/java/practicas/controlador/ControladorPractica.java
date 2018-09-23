@@ -51,6 +51,7 @@ public class ControladorPractica implements Serializable {
     public void insertar() {
         try {
             if (mPractica.insertar(objPractica)) {
+                
 
             } else {
             }
