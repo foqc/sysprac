@@ -43,14 +43,4 @@ public class mSeguridad {
         return port.getUsuarioFacultad(login, password);
     }
 
-    public static Estudiante getDatosCompletosEstudiante(String strCedula) {
-        try {
-            InfoCarrera service = new ec.edu.espoch.academico.carrera.InfoCarrera();
-            InfoCarreraSoap port = service.getInfoCarreraSoap();
-            return port.getDatosCompletosEstudiante(strCedula);
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-
 }
