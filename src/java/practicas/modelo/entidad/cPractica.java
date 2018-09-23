@@ -20,6 +20,10 @@ public class cPractica {
     private int idplanificacion;
     private String codigoescuela;
 
+    public cPractica() {
+    }
+    
+
     public cPractica(int idpractica, String nombre, String descripcion, String empresa, int idestadopractica, int idusuario, int tipopractica, int idplanificacion, String codigoescuela) {
         this.idpractica = idpractica;
         this.nombre = nombre;

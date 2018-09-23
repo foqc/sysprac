@@ -17,7 +17,7 @@ import practicas.modelo.entidad.cNotificacion;
  * @author Jhonathan
  */
 public class mNotificacion {
-    /*
+
     public static List<cNotificacion> obetenerTodosPorIdUsuario(int idUsuario) throws Exception {
         List lista = new ArrayList();
         StringBuilder sql = new StringBuilder();
@@ -28,9 +28,11 @@ public class mNotificacion {
             ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
             while (rs.next()) {
                 cNotificacion obj = new cNotificacion();
-                obj.setIdtipopractica(rs.getInt("idetipopractica"));
-                obj.setNombre(rs.getString("nombre"));
-                obj.setEstado(rs.getBoolean("estado"));
+                obj.setIdnotificacion(rs.getInt("idnotificacion"));
+                obj.setMensaje(rs.getString("mensaje"));
+                obj.setFechaGeneracion(rs.getDate("fechageneracio"));
+                obj.setObjUsuario(mUsuario.usuarioObtenerId(rs.getInt("idusuario")));
+                obj.setObjPractica(mPractica.obetenerPorId(rs.getInt("idpractica")));
                 lista.add(obj);
             }
 
@@ -39,5 +41,6 @@ public class mNotificacion {
         }
         return lista;
     }
-    */
+
+    
 }
