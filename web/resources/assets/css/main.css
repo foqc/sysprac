@@ -1,3 +1,7 @@
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("http://fonts.googleapis.com/css?family=Roboto");
+
 body{
     font-family: Roboto;
     font-size: 13px;
@@ -48,6 +52,7 @@ body{
 .second-container{
     margin-top: 20px;
     margin-bottom: 20px;
+    height: 390px;
 }
 
 .footer__item{
@@ -78,10 +83,14 @@ body{
 
 .container-border{
     border: #bdc2c7 solid 15px;
+    overflow: auto;
 }
 
 .menu-col{
     padding-right: 0px;
+    padding-left: 0px;
+    background-color: #084987;
+    min-width: 250px;
 }
 
 .praxis-title{

@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <!-- **********************************************************************************************************************************************************
+    TOP BAR CONTENT & NOTIFICATIONS
+    *********************************************************************************************************************************************************** -->
+    <!--header start-->   
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-style">
+        <a class="navbar-brand" href="#"><h:graphicImage width="60" height="60" name="assets/images/sello_espoch.png" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="mx-auto main-label">
+            SYSPRAC
+        </div>
+        <div class="user-label">
+            <div class="dropdown">
+                <button class="btn btn-transparent dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                    Username
+                </button>
+                <div class="dropdown-menu drop-default" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Cerrar Sesion</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--header end-->
+</ui:composition>
+
