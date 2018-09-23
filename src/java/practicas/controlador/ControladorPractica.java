@@ -32,12 +32,12 @@ import practicas.recursos.Util;
 public class ControladorPractica implements Serializable {
 
     private cPractica objPractica;
+    private List<cPractica> lstPracticasSolicitadas;
 
     /**
      * Creates a new instance of ControladorPractica
      */
     public ControladorPractica() {
-
         objPractica = new cPractica();
 
     }
@@ -52,6 +52,7 @@ public class ControladorPractica implements Serializable {
             } else {
                 objPractica.setObjTipoPractica(new cTipoPractica());
             }
+            cargarPracticasSolicitadas();
         } catch (Exception e) {
         }
     }
@@ -74,11 +75,18 @@ public class ControladorPractica implements Serializable {
         }
     }
 
+    public List<cPractica> getLstPracticasSolicitadas() {
+        return lstPracticasSolicitadas;
+    }
+
+    public void setLstPracticasSolicitadas(List<cPractica> lstPracticasSolicitadas) {
+        this.lstPracticasSolicitadas = lstPracticasSolicitadas;
+    }
+
     public void insertar() {
         try {
             objPractica.setObjUsuario(new cUsuario(1));
             objPractica.setObjEstadoPractica(new cEstadoPractica(1));
-            objPractica.setObjTipoPractica(new cTipoPractica(1));
             objPractica.setCodigoEscuela("eis");
             if (mPractica.insertar(objPractica)) {
                 Util.infoMessage("Aviso: ", "Datos guardados correctamente");
@@ -92,7 +100,30 @@ public class ControladorPractica implements Serializable {
 
     public void solicitar() {
         try {
-            objPractica.setObjEstadoPractica(new cEstadoPractica(2));
+            objPractica = mPractica.obetenerPorIdUsuarioPorIdEstado(1, 1);
+            objPractica.setObjEstadoPractica(new cEstadoPractica(2)); //2=Solicitada
+            mPractica.actualizar(objPractica);
+            cNotificacion obj = new cNotificacion();
+            obj.setMensaje("Mensaje Test 1");
+            obj.setFechaGeneracion(new Date());
+            obj.setObjUsuario(new cUsuario(2));
+            obj.setObjPractica(objPractica);
+            obj.setObjTipoNotificacion(new cTipoNotificacion(2)); //2=Informativa
+            obj.setObjEstadoNotificacion(new cEstadoNotificacion(1));
+            if (mNotificacion.insertarNotificacion(obj)) {
+                Util.infoMessage("Aviso: ", "Solicitud generada correctamnete");
+            } else {
+                Util.errorMessage("Error: ", "Solicitud no generada");
+            }
+
+        } catch (Exception e) {
+            Util.fatalMessage("Error (Try-Catch) (solicitar): ", e.getMessage());
+        }
+    }
+
+    public void aprobar() {
+        try {
+            objPractica.setObjEstadoPractica(new cEstadoPractica(3)); //3=Aprobada
             mPractica.actualizar(objPractica);
             cNotificacion obj = new cNotificacion();
             obj.setMensaje("Mensaje Test 1");
@@ -108,4 +139,11 @@ public class ControladorPractica implements Serializable {
         }
     }
 
+    public void cargarPracticasSolicitadas() {
+        try {
+            lstPracticasSolicitadas = mPractica.obetenerListaPorIdEstado(2); // 1=Solicitada
+        } catch (Exception e) {
+            Util.fatalMessage("Error (Try-Catch) (cargarPracticasSolicitadas): ", e.getMessage());
+        }
+    }
 }

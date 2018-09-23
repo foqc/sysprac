@@ -6,10 +6,12 @@
 package practicas.modelo.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 import practicas.modelo.accesodatos.AccesoDatos;
 import practicas.modelo.accesodatos.ConjuntoResultado;
 import practicas.modelo.accesodatos.Parametro;
 import practicas.modelo.entidad.cPractica;
+import practicas.modelo.entidad.cUsuario;
 
 /**
  *
@@ -21,12 +23,12 @@ public class mPractica {
         cPractica obj = new cPractica();
         StringBuilder sql = new StringBuilder();
         try {
-            sql.append("SELECT * FROM tipopractica where idetipopractica=? order by idetipopractica");
+            sql.append("SELECT * FROM tipopractica where idtipopractica=? order by idtipopractica");
             ArrayList<Parametro> lstParam = new ArrayList<>();
             lstParam.add(new Parametro(1, id));
             ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
             while (rs.next()) {
-                obj.setIdPractica(rs.getInt("idetipopractica"));
+                obj.setIdPractica(rs.getInt("idtipopractica"));
                 obj.setNombre(rs.getString("nombre"));
                 obj.setDescripcion(rs.getString("descripcion"));
             }
@@ -84,25 +86,60 @@ public class mPractica {
     }
 
     public static cPractica obetenerPorIdUsuarioPorIdEstado(int idUsuario, int idEstado) throws Exception {
-        cPractica obj = new cPractica();
+        cPractica obj = null;
         StringBuilder sql = new StringBuilder();
         try {
             sql.append("select * ");
             sql.append("from practica ");
             sql.append("where idUsuario=? ");
-            sql.append("and idestadosolicitado=?; ");
+            sql.append("and idestadopractica=?; ");
             ArrayList<Parametro> lstParam = new ArrayList<>();
             lstParam.add(new Parametro(1, idUsuario));
             lstParam.add(new Parametro(2, idEstado));
             ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
             while (rs.next()) {
-                obj.setIdPractica(rs.getInt("idetipopractica"));
+                obj = new cPractica();
+                obj.setIdPractica(rs.getInt("idpractica"));
                 obj.setNombre(rs.getString("nombre"));
                 obj.setDescripcion(rs.getString("descripcion"));
+                obj.setEmpresa(rs.getString("empresa"));
+                obj.setObjEstadoPractica(mEstadoPractica.obetenerPorId(rs.getInt("idestadopractica")));
+                obj.setObjUsuario(new cUsuario(rs.getInt("idusuario")));
+                obj.setObjTipoPractica(mTipoPractica.obetenerPorId(rs.getInt("idtipopractica")));
+                obj.setCodigoEscuela(rs.getString("codigoescuela"));
             }
         } catch (Exception e) {
             throw e;
         }
         return obj;
+    }
+
+    public static List<cPractica> obetenerListaPorIdEstado(int idEstado) throws Exception {
+        List<cPractica> lst = null;
+        StringBuilder sql = new StringBuilder();
+        try {
+            sql.append("select * ");
+            sql.append("from practica ");
+            sql.append("where idestadopractica=?; ");
+            ArrayList<Parametro> lstParam = new ArrayList<>();
+            lstParam.add(new Parametro(1, idEstado));
+            ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
+            lst = new ArrayList<>();
+            while (rs.next()) {
+                cPractica obj = new cPractica();
+                obj.setIdPractica(rs.getInt("idpractica"));
+                obj.setNombre(rs.getString("nombre"));
+                obj.setDescripcion(rs.getString("descripcion"));
+                obj.setEmpresa(rs.getString("empresa"));
+                obj.setObjEstadoPractica(mEstadoPractica.obetenerPorId(rs.getInt("idestadopractica")));
+                obj.setObjUsuario(new cUsuario(rs.getInt("idusuario")));
+                obj.setObjTipoPractica(mTipoPractica.obetenerPorId(rs.getInt("idtipopractica")));
+                obj.setCodigoEscuela(rs.getString("codigoescuela"));
+                lst.add(obj);
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+        return lst;
     }
 }

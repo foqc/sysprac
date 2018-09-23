@@ -5,6 +5,7 @@
  */
 package practicas.modelo.dao;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import practicas.modelo.accesodatos.AccesoDatos;
@@ -18,13 +19,15 @@ import practicas.modelo.entidad.cNotificacion;
  */
 public class mNotificacion {
 
-    public static List<cNotificacion> obetenerTodosPorIdUsuario(int idnotificacion) throws Exception {
+    public static List<cNotificacion> obetenerTodosPorIdUsuario(int idUsuario) throws Exception {
         List lista = new ArrayList();
         StringBuilder sql = new StringBuilder();
         try {
-            sql.append("SELECT * FROM notificacion where idnotificacion=? order by idnotificacion");
+            sql.append("SELECT * FROM notificacion ");
+            sql.append("where idusuario=? ");
+            sql.append("order by fechageneracion desc; ");
             ArrayList<Parametro> lstParam = new ArrayList<>();
-            lstParam.add(new Parametro(1, idnotificacion));
+            lstParam.add(new Parametro(1, idUsuario));
             ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
             while (rs.next()) {
                 cNotificacion obj = new cNotificacion();
@@ -48,15 +51,16 @@ public class mNotificacion {
         boolean resp = false;
         StringBuilder sql = new StringBuilder();
         try {
-            sql.append("INSERT INTO notificacion (idusuario,idpractica,idtiponotificacion,idestadonotificacion,mensaje,fechageneracion) VALUES (?,?,?,?,?,?)");
+            sql.append("INSERT INTO notificacion ");
+            sql.append("(mensaje,fechageneracion,idusuario,idpractica,idtiponotificacion,idestadonotificacion) ");
+            sql.append("VALUES (?,?,?,?,?,?) ");
             ArrayList<Parametro> lstParam = new ArrayList<>();
-            lstParam.add(new Parametro(1, objNotificacion.getIdnotificacion()));
-            lstParam.add(new Parametro(2, objNotificacion.getObjUsuario().getIdusuario()));
-            lstParam.add(new Parametro(3, objNotificacion.getObjPractica().getIdPractica()));
-            lstParam.add(new Parametro(4, objNotificacion.getObjTipoNotificacion().getIdTipoNotificacion()));
-            lstParam.add(new Parametro(5, objNotificacion.getObjEstadoNotificacion().getIdEstadoNotificacion()));
-            lstParam.add(new Parametro(6, objNotificacion.getMensaje()));
-            lstParam.add(new Parametro(7, objNotificacion.getFechaGeneracion()));
+            lstParam.add(new Parametro(1, objNotificacion.getMensaje()));
+            lstParam.add(new Parametro(2, new Timestamp(objNotificacion.getFechaGeneracion().getTime())));
+            lstParam.add(new Parametro(3, objNotificacion.getObjUsuario().getIdusuario()));
+            lstParam.add(new Parametro(4, objNotificacion.getObjPractica().getIdPractica()));
+            lstParam.add(new Parametro(5, objNotificacion.getObjTipoNotificacion().getIdTipoNotificacion()));
+            lstParam.add(new Parametro(6, objNotificacion.getObjEstadoNotificacion().getIdEstadoNotificacion()));
             resp = AccesoDatos.ejecutarComando(sql.toString(), lstParam);
         } catch (Exception e) {
             throw e;

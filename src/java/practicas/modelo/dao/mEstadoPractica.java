@@ -45,7 +45,7 @@ public class mEstadoPractica {
     }
 
     public static cEstadoPractica obetenerPorId(int id) throws Exception {
-        cEstadoPractica obj = new cEstadoPractica();
+        cEstadoPractica obj = null;
         StringBuilder sql = new StringBuilder();
         try {
             sql.append("SELECT * FROM estadopractica where idestadopractica=? order by idestadopractica");
@@ -53,6 +53,7 @@ public class mEstadoPractica {
             lstParam.add(new Parametro(1, id));
             ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
             while (rs.next()) {
+                obj = new cEstadoPractica();
                 obj.setIdEstadoPractica(rs.getInt("idestadopractica"));
                 obj.setCodigo(rs.getString("codigo"));
                 obj.setNombre(rs.getString("nombre"));

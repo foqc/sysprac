@@ -9,6 +9,7 @@ import ec.edu.espoch.academico.carrera.Estudiante;
 import ec.edu.espoch.academico.general.EscuelaEntidad;
 import ec.edu.espoch.academico.seguridad.RolCarrera;
 import java.util.List;
+import practicas.modelo.dao.mCarrera;
 import practicas.modelo.dao.mGeneral;
 import practicas.modelo.dao.mNotificacion;
 import practicas.modelo.dao.mSeguridad;
@@ -40,8 +41,9 @@ public class PruebaServicios {
             System.out.println("CodigoCarrera: " + item.getCodigoCarrera());
             System.out.println("NombreRol: " + item.getNombreRol());
         }
-        Estudiante e = mSeguridad.getDatosCompletosEstudiante("180482433-0");
+        Estudiante e = mCarrera.getDatosCompletosEstudiante("180482433-0");
         System.out.println("" + e.getApellidos());
+
     }
 
 }

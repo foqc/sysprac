@@ -26,13 +26,17 @@ public class PruebasPrincipal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        /*
         try {
             List<cTipoPractica> lst = mTipoPractica.obetenerTodosActivos();
             lst.forEach((obj) -> {
                 System.out.println("Nombre: " + obj.getNombre());
             });
         } catch (Exception e) {
-        }
+        }*/
+
+        ControladorPractica obj = new ControladorPractica();
+        obj.solicitar();
     }
 
 }
