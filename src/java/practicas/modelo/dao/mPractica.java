@@ -16,7 +16,7 @@ import practicas.modelo.entidad.cPractica;
  * @author Programador
  */
 public class mPractica {
-    
+
     public static cPractica obetenerPorId(int id) throws Exception {
         cPractica obj = new cPractica();
         StringBuilder sql = new StringBuilder();
@@ -26,7 +26,7 @@ public class mPractica {
             lstParam.add(new Parametro(1, id));
             ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
             while (rs.next()) {
-                obj.setIdestadopractica(rs.getInt("idetipopractica"));
+                obj.setIdPractica(rs.getInt("idetipopractica"));
                 obj.setNombre(rs.getString("nombre"));
                 obj.setDescripcion(rs.getString("descripcion"));
             }
@@ -35,5 +35,24 @@ public class mPractica {
         }
         return obj;
     }
-    
+
+    public static boolean insertar(cPractica obj) {
+        boolean resp = false;
+        try {
+            StringBuilder sql = new StringBuilder();
+            sql.append("");
+            ArrayList<Parametro> lstParam = new ArrayList<>();
+            lstParam.add(new Parametro(1, obj.getNombre()));
+            lstParam.add(new Parametro(2, obj.getDescripcion()));
+            lstParam.add(new Parametro(3, obj.getEmpresa()));
+            lstParam.add(new Parametro(4, obj.getObjEstadoPractica().getIdestadopractica()));
+            lstParam.add(new Parametro(5, obj.getObjUsuario().getIdusuario()));
+            lstParam.add(new Parametro(6, obj.getObjTipoPractica().getIdtipopractica()));
+            lstParam.add(new Parametro(7, obj.getObjPlanificacion().getIdplanificacion()));
+            lstParam.add(new Parametro(7, obj.getCodigoEscuela()));
+        } catch (Exception e) {
+        }
+        return resp;
+    }
+
 }

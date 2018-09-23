@@ -11,13 +11,13 @@ import java.sql.Date;
  *
  * @author Jhonathan
  */
-public class CPlanificacion {
+public class cPlanificacion {
    private int idplanificacion;
    private Date fechainicio;
    private Date fechafin;
    private int totalhoras;
 
-    public CPlanificacion(int idplanificacion, Date fechainicio, Date fechafin, int totalhoras) {
+    public cPlanificacion(int idplanificacion, Date fechainicio, Date fechafin, int totalhoras) {
         this.idplanificacion = idplanificacion;
         this.fechainicio = fechainicio;
         this.fechafin = fechafin;

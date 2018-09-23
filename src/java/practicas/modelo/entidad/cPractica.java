@@ -10,38 +10,26 @@ package practicas.modelo.entidad;
  * @author Jhonathan
  */
 public class cPractica {
-    private int idpractica;
+
+    private int idPractica;
     private String nombre;
     private String descripcion;
     private String empresa;
-    private int idestadopractica;
-    private int idusuario;
-    private int tipopractica;
-    private int idplanificacion;
-    private String codigoescuela;
+    private cEstadoPractica objEstadoPractica;
+    private cUsuario objUsuario;
+    private cTipoPractica objTipoPractica;
+    private cPlanificacion objPlanificacion;
+    private String codigoEscuela;
 
     public cPractica() {
     }
-    
 
-    public cPractica(int idpractica, String nombre, String descripcion, String empresa, int idestadopractica, int idusuario, int tipopractica, int idplanificacion, String codigoescuela) {
-        this.idpractica = idpractica;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.empresa = empresa;
-        this.idestadopractica = idestadopractica;
-        this.idusuario = idusuario;
-        this.tipopractica = tipopractica;
-        this.idplanificacion = idplanificacion;
-        this.codigoescuela = codigoescuela;
+    public int getIdPractica() {
+        return idPractica;
     }
 
-    public int getIdpractica() {
-        return idpractica;
-    }
-
-    public void setIdpractica(int idpractica) {
-        this.idpractica = idpractica;
+    public void setIdPractica(int idPractica) {
+        this.idPractica = idPractica;
     }
 
     public String getNombre() {
@@ -68,44 +56,44 @@ public class cPractica {
         this.empresa = empresa;
     }
 
-    public int getIdestadopractica() {
-        return idestadopractica;
+    public cEstadoPractica getObjEstadoPractica() {
+        return objEstadoPractica;
     }
 
-    public void setIdestadopractica(int idestadopractica) {
-        this.idestadopractica = idestadopractica;
+    public void setObjEstadoPractica(cEstadoPractica objEstadoPractica) {
+        this.objEstadoPractica = objEstadoPractica;
     }
 
-    public int getIdusuario() {
-        return idusuario;
+    public cUsuario getObjUsuario() {
+        return objUsuario;
     }
 
-    public void setIdusuario(int idusuario) {
-        this.idusuario = idusuario;
+    public void setObjUsuario(cUsuario objUsuario) {
+        this.objUsuario = objUsuario;
     }
 
-    public int getTipopractica() {
-        return tipopractica;
+    public cTipoPractica getObjTipoPractica() {
+        return objTipoPractica;
     }
 
-    public void setTipopractica(int tipopractica) {
-        this.tipopractica = tipopractica;
+    public void setObjTipoPractica(cTipoPractica objTipoPractica) {
+        this.objTipoPractica = objTipoPractica;
     }
 
-    public int getIdplanificacion() {
-        return idplanificacion;
+    public cPlanificacion getObjPlanificacion() {
+        return objPlanificacion;
     }
 
-    public void setIdplanificacion(int idplanificacion) {
-        this.idplanificacion = idplanificacion;
+    public void setObjPlanificacion(cPlanificacion objPlanificacion) {
+        this.objPlanificacion = objPlanificacion;
     }
 
-    public String getCodigoescuela() {
-        return codigoescuela;
+    public String getCodigoEscuela() {
+        return codigoEscuela;
     }
 
-    public void setCodigoescuela(String codigoescuela) {
-        this.codigoescuela = codigoescuela;
+    public void setCodigoEscuela(String codigoEscuela) {
+        this.codigoEscuela = codigoEscuela;
     }
-       
+
 }
