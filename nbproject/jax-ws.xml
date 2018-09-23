@@ -7,6 +7,10 @@
       <local-wsdl-file>academico.espoch.edu.ec/OAS_Interop/Seguridad.asmx.wsdl</local-wsdl-file>
       <package-name forceReplace="true">ec.edu.espoch.academico.seguridad</package-name>
       <catalog-file>catalog.xml</catalog-file>
+      <binding>
+        <file-name>Seguridad_handler.xml</file-name>
+      </binding>
+      <handler-binding-file>Seguridad_handler.xml</handler-binding-file>
       <wsimport-options>
         <wsimport-option>
           <wsimport-option-name>extension</wsimport-option-name>
@@ -43,6 +47,10 @@
       <local-wsdl-file>academico.espoch.edu.ec/OAS_Interop/InfoCarrera.asmx.wsdl</local-wsdl-file>
       <package-name forceReplace="true">ec.edu.espoch.academico.carrera</package-name>
       <catalog-file>catalog.xml</catalog-file>
+      <binding>
+        <file-name>InfoCarrera_handler.xml</file-name>
+      </binding>
+      <handler-binding-file>InfoCarrera_handler.xml</handler-binding-file>
       <wsimport-options>
         <wsimport-option>
           <wsimport-option-name>extension</wsimport-option-name>
@@ -79,6 +87,10 @@
       <local-wsdl-file>academico.espoch.edu.ec/OAS_Interop/InfoGeneral.asmx.wsdl</local-wsdl-file>
       <package-name forceReplace="true">ec.edu.espoch.academico.general</package-name>
       <catalog-file>catalog.xml</catalog-file>
+      <binding>
+        <file-name>InfoGeneral_handler.xml</file-name>
+      </binding>
+      <handler-binding-file>InfoGeneral_handler.xml</handler-binding-file>
       <wsimport-options>
         <wsimport-option>
           <wsimport-option-name>extension</wsimport-option-name>

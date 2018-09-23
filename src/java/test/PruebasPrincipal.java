@@ -26,10 +26,12 @@ public class PruebasPrincipal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayOfRolCarrera dato = mSeguridad.getRolUsuarioCarrera("180482433-0");
-
-        for (RolCarrera item : dato.getRolCarrera()) {
-            System.err.println("Nombre Rol: " + item.getNombreRol());
+        try {
+            List<cTipoPractica> lst = mTipoPractica.obetenerTodosActivos();
+            lst.forEach((obj) -> {
+                System.out.println("Nombre: " + obj.getNombre());
+            });
+        } catch (Exception e) {
         }
     }
 

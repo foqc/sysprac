@@ -31,10 +31,16 @@
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Seguridad" destdir="${build.generated.dir}/jax-wsCache/Seguridad" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/Seguridad/wsdl/academico.espoch.edu.ec/OAS_Interop/Seguridad.asmx.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://academico.espoch.edu.ec/OAS_Interop/Seguridad.asmx?WSDL" xnocompile="true" xendorsed="true" package="ec.edu.espoch.academico.seguridad">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/Seguridad/wsdl/academico.espoch.edu.ec/OAS_Interop/Seguridad.asmx.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/Seguridad"/>
+            <binding dir="${conf-dir}xml-resources/web-service-references/Seguridad/bindings" includes="Seguridad_handler.xml"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
             <fileset dir="${build.generated.dir}/jax-wsCache/Seguridad">
                 <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Seguridad">
+                <include name="**/*.xml"/>
             </fileset>
         </copy>
     </target>
@@ -47,10 +53,16 @@
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/InfoCarrera" destdir="${build.generated.dir}/jax-wsCache/InfoCarrera" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/InfoCarrera/wsdl/academico.espoch.edu.ec/OAS_Interop/InfoCarrera.asmx.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://academico.espoch.edu.ec/OAS_Interop/InfoCarrera.asmx?WSDL" xnocompile="true" xendorsed="true" package="ec.edu.espoch.academico.carrera">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/InfoCarrera/wsdl/academico.espoch.edu.ec/OAS_Interop/InfoCarrera.asmx.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/InfoCarrera"/>
+            <binding dir="${conf-dir}xml-resources/web-service-references/InfoCarrera/bindings" includes="InfoCarrera_handler.xml"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
             <fileset dir="${build.generated.dir}/jax-wsCache/InfoCarrera">
                 <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${build.generated.dir}/jax-wsCache/InfoCarrera">
+                <include name="**/*.xml"/>
             </fileset>
         </copy>
     </target>
@@ -63,10 +75,16 @@
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/InfoGeneral" destdir="${build.generated.dir}/jax-wsCache/InfoGeneral" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/InfoGeneral/wsdl/academico.espoch.edu.ec/OAS_Interop/InfoGeneral.asmx.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://academico.espoch.edu.ec/OAS_Interop/InfoGeneral.asmx?WSDL" xnocompile="true" xendorsed="true" package="ec.edu.espoch.academico.general">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/InfoGeneral/wsdl/academico.espoch.edu.ec/OAS_Interop/InfoGeneral.asmx.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/InfoGeneral"/>
+            <binding dir="${conf-dir}xml-resources/web-service-references/InfoGeneral/bindings" includes="InfoGeneral_handler.xml"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
             <fileset dir="${build.generated.dir}/jax-wsCache/InfoGeneral">
                 <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${build.generated.dir}/jax-wsCache/InfoGeneral">
+                <include name="**/*.xml"/>
             </fileset>
         </copy>
     </target>

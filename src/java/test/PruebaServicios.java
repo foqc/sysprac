@@ -5,8 +5,13 @@
  */
 package test;
 
+import ec.edu.espoch.academico.carrera.Estudiante;
+import ec.edu.espoch.academico.general.EscuelaEntidad;
+import ec.edu.espoch.academico.seguridad.RolCarrera;
 import java.util.List;
+import practicas.modelo.dao.mGeneral;
 import practicas.modelo.dao.mNotificacion;
+import practicas.modelo.dao.mSeguridad;
 import practicas.modelo.dao.mTipoPractica;
 import practicas.modelo.entidad.cNotificacion;
 import practicas.modelo.entidad.cTipoNotificacion;
@@ -24,39 +29,19 @@ public class PruebaServicios {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-       boolean resp =false;
-        cNotificacion obj;
-        try {
-            cUsuario objU =new cUsuario();
-            cTipoUsuario  objTU= new cTipoUsuario();
-            objTU.setIdtipousuario(1);
-            objTU.setNombre("Estudiante");
-            objTU.setDescripcion("Estudiante");
-            objTU.setEstado(true);
-           
-            
-            objU.setIdusuario(1);
-            objU.setNombre("Luis");
-            objU.setCedula("123456789-0");
-            objU.setObjTipoUsuario(objTU);
-            
-            
-            cTipoNotificacion objTipoNotificacion = new cTipoNotificacion();
-            objTipoNotificacion.setIdTipoNotificacion(1);
-            objTipoNotificacion.setNombre("SolicitudPractica");
-            
-            obj=new cNotificacion();
-            obj.setIdnotificacion(1);
-            obj.setObjUsuario(objU);
-            obj.setObjTipoNotificacion(objTipoNotificacion);
-            
-            resp= mNotificacion.insertarNotificacion(obj);
-            
-            
-        } catch (Exception e) {
-            throw e;
+        /*
+        List<EscuelaEntidad> lst = mGeneral.getEscuelaEntidad();
+        for (EscuelaEntidad item : lst) {
+            System.out.println("Carrera: " + item.getCarrera());
         }
-        System.out.println(resp);
+         */
+        List<RolCarrera> lstRolCarrera = mSeguridad.getRolUsuarioCarrera("180482433-0");
+        for (RolCarrera item : lstRolCarrera) {
+            System.out.println("CodigoCarrera: " + item.getCodigoCarrera());
+            System.out.println("NombreRol: " + item.getNombreRol());
+        }
+        Estudiante e = mSeguridad.getDatosCompletosEstudiante("180482433-0");
+        System.out.println("" + e.getApellidos());
     }
 
 }
