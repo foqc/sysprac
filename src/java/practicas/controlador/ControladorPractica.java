@@ -9,7 +9,9 @@ import javax.inject.Named;
 import javax.enterprise.context.ConversationScoped;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
+import practicas.modelo.dao.mPractica;
 import practicas.modelo.entidad.cPractica;
+import practicas.modelo.entidad.cTipoPractica;
 
 /**
  *
@@ -18,31 +20,35 @@ import practicas.modelo.entidad.cPractica;
 @Named(value = "controladorPractica")
 @ConversationScoped
 public class ControladorPractica implements Serializable {
-
+    
     private cPractica objPractica;
 
     /**
      * Creates a new instance of ControladorPractica
      */
     public ControladorPractica() {
+        objPractica = new cPractica();
     }
-
+    
     @PostConstruct
     public void init() {
-
+        objPractica.setObjTipoPractica(new cTipoPractica());
     }
-
+    
     public cPractica getObjPractica() {
         return objPractica;
     }
-
+    
     public void setObjPractica(cPractica objPractica) {
         this.objPractica = objPractica;
     }
-
+    
     public void insertar() {
         try {
-
+            if (mPractica.insertar(objPractica)) {
+                
+            } else {
+            }
         } catch (Exception e) {
         }
     }
