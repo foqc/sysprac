@@ -11,15 +11,33 @@
         <h:outputText value="SysPrac | Panel de Control"></h:outputText>
     </ui:define>
 
-    <ui:define name="content">                        
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://i1.wp.com/fireosoft.com.co/blogs/wp-content/uploads/2016/03/software-a-la-medida.png?ssl=1" alt="Card image cap"/>
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-        </div>
+    <ui:define name="content">                      
+        <h:form>
+            <h:dataTable class="table" value="#" var="dato">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Estudiante:"></h:outputText>
+                    </f:facet>
+                    <h:outputText value="#{dato.valor}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nombre:"></h:outputText>
+                    </f:facet>
+                    <h:outputText value="#{dato.nombre}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <h:form>
+                        <h:commandButton class="btn btn-primary" action="#{holaMundo.removeValor(dato)}"
+                                         value="Αsignar"></h:commandButton>
+                        <h:commandButton class="btn btn-success" action="#{holaMundo.removeValor(dato)}"
+                                         value="Αprobar"></h:commandButton>
+                        <h:commandButton class="btn btn-danger" action="#{holaMundo.removeValor(dato)}"
+                                         value="Rechazar"></h:commandButton>
+                    </h:form>
+                </h:column>
+            </h:dataTable>
+        </h:form>
     </ui:define>
 </ui:composition>        
 
