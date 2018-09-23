@@ -44,6 +44,7 @@ public class ControladorPractica implements Serializable {
 
     @PostConstruct
     public void init() {
+        objPractica.setObjTipoPractica(new cTipoPractica());
         try {
             cPractica obj = mPractica.obetenerPorIdUsuarioPorIdEstado(1, 1);
             if (obj != null) {
