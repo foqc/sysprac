@@ -84,6 +84,7 @@ body{
 .container-border{
     border: #bdc2c7 solid 15px;
     overflow: auto;
+    word-break: break-all;
 }
 
 .menu-col{
@@ -99,4 +100,19 @@ body{
     font-size: 32px;
     font-weight: 600;
     text-align: center;
+}
+
+.dropdown-toggle-none::after{
+    display: none;
+}
+
+.btn .notify-icon{
+    top: -15px;
+    background-color: #dc3545;
+    border-radius: 100%;
+}
+
+.notify-container{
+    max-height: 200px;
+    overflow: auto;
 }
