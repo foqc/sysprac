@@ -5,22 +5,54 @@
  */
 package practicas.controlador;
 
-import javax.inject.Named;
-import javax.enterprise.context.ConversationScoped;
 import java.io.Serializable;
+import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import practicas.modelo.dao.mUsuario;
+import practicas.modelo.entidad.cPractica;
+import practicas.modelo.entidad.cUsuario;
+import practicas.recursos.Util;
 
 /**
  *
  * @author Programador
  */
-@Named(value = "controladorUsuario")
-@ConversationScoped
+@ManagedBean
+@ViewScoped
 public class ControladorUsuario implements Serializable {
+
+    private List<cUsuario> lstDocentes;
 
     /**
      * Creates a new instance of controladorUsuario
      */
     public ControladorUsuario() {
+    }
+
+    @PostConstruct
+    public void init() {
+
+    }
+
+    public List<cUsuario> getLstDocentes() {
+        return lstDocentes;
+    }
+
+    public void setLstDocentes(List<cUsuario> lstDocentes) {
+        this.lstDocentes = lstDocentes;
+    }
+
+    public void cargarDocentes() {
+        try {
+            try {
+                lstDocentes = mUsuario.obtenerListaPorIdTipoUsuario(2); // 2=Docente
+            } catch (Exception e) {
+                Util.fatalMessage("Error (Try-Catch) (cargarDocentes): ", e.getMessage());
+            }
+        } catch (Exception e) {
+        }
     }
 
 }

@@ -5,11 +5,14 @@
  */
 package practicas.controlador;
 
-import javax.inject.Named;
-import javax.enterprise.context.ConversationScoped;
 import java.io.Serializable;
+import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import practicas.modelo.dao.mNotificacion;
+import practicas.modelo.entidad.cNotificacion;
+import practicas.recursos.Util;
 
 /**
  *
@@ -19,10 +22,33 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class ControladorNotificacion implements Serializable {
 
+    private List<cNotificacion> lstNotifPorUsuario;
+
     /**
      * Creates a new instance of ControladorNotificacion
      */
     public ControladorNotificacion() {
+    }
+
+    @PostConstruct
+    public void init() {
+        cargarNotificacionesPorIdUsuario(3);
+    }
+
+    public List<cNotificacion> getLstNotifPorUsuario() {
+        return lstNotifPorUsuario;
+    }
+
+    public void setLstNotifPorUsuario(List<cNotificacion> lstNotifPorUsuario) {
+        this.lstNotifPorUsuario = lstNotifPorUsuario;
+    }
+
+    public void cargarNotificacionesPorIdUsuario(int idUsuario) {
+        try {
+            lstNotifPorUsuario = mNotificacion.obetenerTodosPorIdUsuario(idUsuario); // 
+        } catch (Exception e) {
+            Util.fatalMessage("Error (Try-Catch) (cargarNotificacionesPorIdUsuario): ", e.getMessage());
+        }
     }
 
 }

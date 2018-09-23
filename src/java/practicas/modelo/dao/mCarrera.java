@@ -38,7 +38,7 @@ public class mCarrera {
         }
     }
 
-    private static Persona getDatosUsuarioCarrera(String codCarrera, String cedula) {
+    public static Persona getDatosUsuarioCarrera(String codCarrera, String cedula) {
         ec.edu.espoch.academico.carrera.InfoCarrera service = new ec.edu.espoch.academico.carrera.InfoCarrera();
         ec.edu.espoch.academico.carrera.InfoCarreraSoap port = service.getInfoCarreraSoap();
         return port.getDatosUsuarioCarrera(codCarrera, cedula);

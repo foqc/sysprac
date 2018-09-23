@@ -5,6 +5,7 @@
  */
 package test;
 
+import ec.edu.espoch.academico.carrera.Docente;
 import ec.edu.espoch.academico.carrera.Estudiante;
 import ec.edu.espoch.academico.general.EscuelaEntidad;
 import ec.edu.espoch.academico.seguridad.RolCarrera;
@@ -41,9 +42,28 @@ public class PruebaServicios {
             System.out.println("CodigoCarrera: " + item.getCodigoCarrera());
             System.out.println("NombreRol: " + item.getNombreRol());
         }
+        System.out.println("Estudiantes **********************************");
         Estudiante e = mCarrera.getDatosCompletosEstudiante("180482433-0");
-        System.out.println("" + e.getApellidos());
+        System.out.println(e.getCedula() + " - " + e.getNombres() + " " + e.getApellidos());
 
+        e = mCarrera.getDatosCompletosEstudiante("020180907-6");
+        System.out.println(e.getCedula() + " - " + e.getNombres() + " " + e.getApellidos());
+
+        //  e = mCarrera.getDatosCompletosEstudiante("020180907-6");
+        //System.out.println(e.getCedula() + " - " + e.getNombres() + " " + e.getApellidos());
+        //CodigoCarrera: EIS
+        System.out.println("Docentes **********************************");
+        Docente d = mCarrera.getDatosDocente("EIS", "060218509-2");
+        System.out.println(d.getCedula() + " - " + d.getNombre() + " " + d.getApellidos());
+
+        d = mCarrera.getDatosDocente("EIS", "060206164-0");
+        System.out.println(d.getCedula() + " - " + d.getNombre() + " " + d.getApellidos());
+
+        d = mCarrera.getDatosDocente("EIS", "060190508-6");
+        System.out.println(d.getCedula() + " - " + d.getNombre() + " " + d.getApellidos());
+
+        d = mCarrera.getDatosDocente("EIS", "060238695-5");
+        System.out.println(d.getCedula() + " - " + d.getNombre() + " " + d.getApellidos());
     }
 
 }
