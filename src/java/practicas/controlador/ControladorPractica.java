@@ -6,17 +6,19 @@
 package practicas.controlador;
 
 import javax.inject.Named;
-import javax.enterprise.context.ConversationScoped;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ViewScoped;
+import practicas.modelo.dao.mPractica;
 import practicas.modelo.entidad.cPractica;
+import practicas.modelo.entidad.cTipoPractica;
 
 /**
  *
  * @author Programador
  */
-@Named(value = "controladorPractica")
-@ConversationScoped
+@Named
+@ViewScoped
 public class ControladorPractica implements Serializable {
 
     private cPractica objPractica;
@@ -25,12 +27,15 @@ public class ControladorPractica implements Serializable {
      * Creates a new instance of ControladorPractica
      */
     public ControladorPractica() {
-        objPractica= new cPractica();
+
+
+        objPractica = new cPractica();
+
     }
 
     @PostConstruct
     public void init() {
-
+        objPractica.setObjTipoPractica(new cTipoPractica());
     }
 
     public cPractica getObjPractica() {
@@ -43,7 +48,10 @@ public class ControladorPractica implements Serializable {
 
     public void insertar() {
         try {
+            if (mPractica.insertar(objPractica)) {
 
+            } else {
+            }
         } catch (Exception e) {
         }
     }
