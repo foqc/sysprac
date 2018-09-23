@@ -28,7 +28,7 @@ public class PruebaConexion {
 
             System.out.println("escribir");
             URL ruta = new Ruta().getFilePropiedades();
-            propiedades = new mPropiedades(ruta, "192.168.1.147", "5432", "practicasdb", "postgres", "10091992", "POSTGRES", "jdbc:postgresql", "org.postgresql.Driver", "jdbc:postgresql://192.168.1.147/practicasdb");
+            propiedades = new mPropiedades(ruta, "localhost", "5432", "practicasdb", "postgres", "10091992", "POSTGRES", "jdbc:postgresql", "org.postgresql.Driver", "jdbc:postgresql://192.168.1.147/practicasdb");
             propiedades.escribir();
             result = propiedades.leer();
             if (!result) {

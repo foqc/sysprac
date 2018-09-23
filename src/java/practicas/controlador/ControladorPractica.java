@@ -33,6 +33,7 @@ public class ControladorPractica implements Serializable {
 
     private cPractica objPractica;
     private List<cPractica> lstPracticasSolicitadas;
+    private cPractica selObjPractica;
 
     /**
      * Creates a new instance of ControladorPractica
@@ -63,6 +64,14 @@ public class ControladorPractica implements Serializable {
 
     public void setObjPractica(cPractica objPractica) {
         this.objPractica = objPractica;
+    }
+
+    public cPractica getSelObjPractica() {
+        return selObjPractica;
+    }
+
+    public void setSelObjPractica(cPractica selObjPractica) {
+        this.selObjPractica = selObjPractica;
     }
 
     public void obtenerTodosActivos() {
@@ -121,21 +130,81 @@ public class ControladorPractica implements Serializable {
         }
     }
 
-    public void aprobar() {
+    public void asinarASelObjPractica(cPractica obj) {
+        this.selObjPractica = obj;
+    }
+
+    public void asignar(cUsuario objUserAsignado) {
         try {
-            objPractica.setObjEstadoPractica(new cEstadoPractica(3)); //3=Aprobada
-            mPractica.actualizar(objPractica);
+            selObjPractica.setObjEstadoPractica(new cEstadoPractica(3)); //3=Asignado
+            mPractica.actualizar(selObjPractica);
             cNotificacion obj = new cNotificacion();
-            obj.setMensaje("Mensaje Test 1");
+            //Para docente
+            StringBuilder me = new StringBuilder();
+            me.append("Estimado docente ");
+            me.append(objUserAsignado.getNombre());
+            me.append(" usted ha sido asignaddo como tutor de la practica preprofesional, ");
+            me.append(selObjPractica.getObjTipoPractica().getNombre());
+            me.append(", denominado ");
+            me.append(selObjPractica.getNombre());
+            me.append(" perteneciente al Sr. estudiante ");
+            me.append(selObjPractica.getObjUsuario().getNombre());
+            me.append(".");
+            obj.setMensaje(me.toString());
             obj.setFechaGeneracion(new Date());
-            obj.setObjUsuario(new cUsuario(2));
-            obj.setObjPractica(objPractica);
-            obj.setObjTipoNotificacion(new cTipoNotificacion(1));
-            obj.setObjEstadoNotificacion(new cEstadoNotificacion(1));
+            obj.setObjUsuario(objUserAsignado);
+            obj.setObjPractica(selObjPractica);
+            obj.setObjTipoNotificacion(new cTipoNotificacion(2)); //2=Informativo
+            obj.setObjEstadoNotificacion(new cEstadoNotificacion(1)); //1=No Visto
+            mNotificacion.insertarNotificacion(obj);
+
+            //Para estudiante
+            me = new StringBuilder();
+            me.append("Estimad@ estudiante ");
+            me.append(selObjPractica.getObjUsuario().getNombre());
+            me.append(", el tutor asignado para su práctica preprofesional, ");
+            me.append(selObjPractica.getObjTipoPractica().getNombre());
+            me.append(", denominado ");
+            me.append(selObjPractica.getNombre());
+            me.append(" es el docente ");
+            me.append(objUserAsignado.getNombre());
+            me.append(".");
+            obj.setMensaje(me.toString());
+            obj.setFechaGeneracion(new Date());
+            obj.setObjUsuario(selObjPractica.getObjUsuario());
+            obj.setObjPractica(selObjPractica);
+            obj.setObjTipoNotificacion(new cTipoNotificacion(2)); //2=Informativo
+            obj.setObjEstadoNotificacion(new cEstadoNotificacion(1)); //1=No Visto
             mNotificacion.insertarNotificacion(obj);
 
         } catch (Exception e) {
-            Util.fatalMessage("Error (Try-Catch) (solicitar): ", e.getMessage());
+            Util.fatalMessage("Error (Try-Catch) (asignar): ", e.getMessage());
+        }
+    }
+
+    public void aprobar() {
+        try {
+            selObjPractica.setObjEstadoPractica(new cEstadoPractica(3)); //3=Asignado
+            mPractica.actualizar(selObjPractica);
+            cNotificacion obj = new cNotificacion();
+            //Para Estudiante
+            StringBuilder me = new StringBuilder();
+            me.append("Estimado estudiante, su socilitud de práctica preprofesional, ");
+            me.append(selObjPractica.getObjTipoPractica().getNombre());
+            me.append(", denominado ");
+            me.append(selObjPractica.getNombre());
+            me.append(" a sido aprobada.  ");
+
+            obj.setMensaje(me.toString());
+            obj.setFechaGeneracion(new Date());
+            obj.setObjUsuario(new cUsuario(2));
+            obj.setObjPractica(selObjPractica);
+            obj.setObjTipoNotificacion(new cTipoNotificacion(2)); //2=Informativo
+            obj.setObjEstadoNotificacion(new cEstadoNotificacion(1)); //1=No Visto
+            mNotificacion.insertarNotificacion(obj);
+
+        } catch (Exception e) {
+            Util.fatalMessage("Error (Try-Catch) (asignar): ", e.getMessage());
         }
     }
 
