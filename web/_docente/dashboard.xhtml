@@ -33,17 +33,17 @@
                     <h:outputText value="#{dato.objEstadoPractica.nombre}"></h:outputText>
                 </h:column>
                 <h:column>
-                    <h:form>
-                        <h:commandButton class="btn btn-primary" action="#{holaMundo.removeValor(dato)}"
-                                         value="Αsignar"></h:commandButton>
-                        <h:commandButton class="btn btn-success" action="#{holaMundo.removeValor(dato)}"
-                                         value="Αprobar"></h:commandButton>
-                        <h:commandButton class="btn btn-danger" action="#{holaMundo.removeValor(dato)}"
-                                         value="Rechazar"></h:commandButton>
-                    </h:form>
+
+                    <button type="button" class="btn btn-primary btn-xs"  data-toggle="modal" data-target="#modalAprobacion" action="#{controladorUsuario.cargarDocentes()}">Asignar</button>                    
+                    <button class="btn btn-success btn-xs" action="#{holaMundo.removeValor(dato)}">Aprobar</button>
+                    <button class="btn btn-danger btn-xs"  action="#{holaMundo.removeValor(dato)}">Rechazar</button>
+                    
+
                 </h:column>
+
             </h:dataTable>
         </h:form>
     </ui:define>
-</ui:composition>        
+</ui:composition>
+
 

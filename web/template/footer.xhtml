@@ -1,7 +1,8 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -23,6 +24,51 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Tutores -->
+
+    <div class="modal fade" id="modalAprobacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tutores Disponibles</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <h:form>
+                        <h:dataTable class="table" value="#{controladorUsuario.lstDocentes}" var="dato">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Cédula:"></h:outputText>
+                                </f:facet>
+                                <h:outputText value="#{dato.cedula}"></h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Nombres:"></h:outputText>
+                                </f:facet>
+                                <h:outputText value="#{dato.nombre}"></h:outputText>
+                            </h:column>
+
+                            <h:column>                                                 
+                                <button class="btn btn-success btn-xs" action="#{holaMundo.removeValor(dato)}">Asignar</button>
+                            </h:column>
+
+                        </h:dataTable>
+                    </h:form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <footer class="footer">
         <div class="footer__item linea"><i class="material-icons md-13">place</i>Panamericana Sur km 1 1/2, Riobamba, Chimborazo,
