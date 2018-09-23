@@ -132,7 +132,7 @@ public class mPractica {
                 obj.setDescripcion(rs.getString("descripcion"));
                 obj.setEmpresa(rs.getString("empresa"));
                 obj.setObjEstadoPractica(mEstadoPractica.obetenerPorId(rs.getInt("idestadopractica")));
-                obj.setObjUsuario(new cUsuario(rs.getInt("idusuario")));
+                obj.setObjUsuario(mUsuario.usuarioObtenerId(rs.getInt("idusuario")));
                 obj.setObjTipoPractica(mTipoPractica.obetenerPorId(rs.getInt("idtipopractica")));
                 obj.setCodigoEscuela(rs.getString("codigoescuela"));
                 lst.add(obj);

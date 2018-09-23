@@ -13,18 +13,24 @@
 
     <ui:define name="content">                      
         <h:form>
-            <h:dataTable class="table" value="#" var="dato">
+            <h:dataTable class="table" value="#{controladorPractica.lstPracticasSolicitadas}" var="dato">
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Estudiante:"></h:outputText>
                     </f:facet>
-                    <h:outputText value="#{dato.valor}"></h:outputText>
+                    <h:outputText value="#{dato.objUsuario.nombre}"></h:outputText>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Nombre:"></h:outputText>
                     </f:facet>
                     <h:outputText value="#{dato.nombre}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Estado:"></h:outputText>
+                    </f:facet>
+                    <h:outputText value="#{dato.objEstadoPractica.nombre}"></h:outputText>
                 </h:column>
                 <h:column>
                     <h:form>
