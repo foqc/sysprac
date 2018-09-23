@@ -25,6 +25,7 @@ public class ControladorPractica implements Serializable {
      * Creates a new instance of ControladorPractica
      */
     public ControladorPractica() {
+        objPractica= new cPractica();
     }
 
     @PostConstruct
