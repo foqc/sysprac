@@ -11,25 +11,28 @@ package practicas.modelo.entidad;
  */
 public class cTipoPractica {
 
-    private int idtipopractica;
+    private int idTipoPractica;
+    private String codigo;
     private String nombre;
     private boolean estado;
-
-    public cTipoPractica(int idtipopractica, String nombre, boolean estado) {
-        this.idtipopractica = idtipopractica;
-        this.nombre = nombre;
-        this.estado = estado;
-    }
 
     public cTipoPractica() {
     }
 
-    public int getIdtipopractica() {
-        return idtipopractica;
+    public int getIdTipoPractica() {
+        return idTipoPractica;
     }
 
-    public void setIdtipopractica(int idtipopractica) {
-        this.idtipopractica = idtipopractica;
+    public void setIdTipoPractica(int idTipoPractica) {
+        this.idTipoPractica = idTipoPractica;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {

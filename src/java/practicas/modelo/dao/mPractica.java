@@ -47,7 +47,7 @@ public class mPractica {
             lstParam.add(new Parametro(3, obj.getEmpresa()));
             lstParam.add(new Parametro(4, obj.getObjEstadoPractica().getIdestadopractica()));
             lstParam.add(new Parametro(5, obj.getObjUsuario().getIdusuario()));
-            lstParam.add(new Parametro(6, obj.getObjTipoPractica().getIdtipopractica()));
+            lstParam.add(new Parametro(6, obj.getObjTipoPractica().getIdTipoPractica()));
             lstParam.add(new Parametro(7, obj.getCodigoEscuela()));
             resp = AccesoDatos.ejecutarComando(sql.toString(), lstParam);
         } catch (Exception e) {

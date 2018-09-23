@@ -22,14 +22,18 @@ public class mTipoPractica {
         List lista = new ArrayList();
         StringBuilder sql = new StringBuilder();
         try {
-            sql.append("SELECT * FROM tipopractica where estado=? order by idetipopractica");
+            sql.append("select * ");
+            sql.append("from tipopractica ");
+            sql.append("where estado=? ");
+            sql.append("order by nombre; ");
             ArrayList<Parametro> lstParam = new ArrayList<>();
             lstParam.add(new Parametro(1, true));
             ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
             while (rs.next()) {
                 cTipoPractica obj = new cTipoPractica();
-                obj.setIdtipopractica(rs.getInt("idetipopractica"));
+                obj.setIdTipoPractica(rs.getInt("idtipopractica"));
                 obj.setNombre(rs.getString("nombre"));
+                obj.setNombre(rs.getString("codigo"));
                 obj.setEstado(rs.getBoolean("estado"));
                 lista.add(obj);
             }
@@ -49,7 +53,7 @@ public class mTipoPractica {
             lstParam.add(new Parametro(1, id));
             ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
             while (rs.next()) {
-                obj.setIdtipopractica(rs.getInt("idetipopractica"));
+                obj.setIdTipoPractica(rs.getInt("idetipopractica"));
                 obj.setNombre(rs.getString("nombre"));
                 obj.setEstado(rs.getBoolean("estado"));
             }
