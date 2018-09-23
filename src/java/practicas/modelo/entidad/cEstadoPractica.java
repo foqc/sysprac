@@ -10,27 +10,33 @@ package practicas.modelo.entidad;
  * @author Jhonathan
  */
 public class cEstadoPractica {
-    private int idestadopractica;
+
+    private int idEstadoPractica;
+    private String codigo;
     private String nombre;
-    private String descripcion;
     private boolean estado;
 
-    public cEstadoPractica(int idestadopractica, String nombre, String descripcion, boolean estado) {
-        this.idestadopractica = idestadopractica;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.estado = estado;
+    public cEstadoPractica ()
+    {
+    }
+    public cEstadoPractica(int idEstadoPractica) {
+        this.idEstadoPractica = idEstadoPractica;
     }
 
-    public cEstadoPractica() {
+    public int getIdEstadoPractica() {
+        return idEstadoPractica;
     }
 
-    public int getIdestadopractica() {
-        return idestadopractica;
+    public void setIdEstadoPractica(int idEstadoPractica) {
+        this.idEstadoPractica = idEstadoPractica;
     }
 
-    public void setIdestadopractica(int idestadopractica) {
-        this.idestadopractica = idestadopractica;
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {
@@ -41,14 +47,6 @@ public class cEstadoPractica {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
     public boolean isEstado() {
         return estado;
     }
@@ -56,6 +54,5 @@ public class cEstadoPractica {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    
-    
+
 }

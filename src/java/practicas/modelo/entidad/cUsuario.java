@@ -10,11 +10,19 @@ package practicas.modelo.entidad;
  * @author Jhonathan
  */
 public class cUsuario {
+
     private int idusuario;
     private String cedula;
     private String nombre;
     private boolean estado;
     cTipoUsuario objTipoUsuario;
+
+    public cUsuario() {
+    }
+
+    public cUsuario(int idusuario) {
+        this.idusuario = idusuario;
+    }
 
     public cTipoUsuario getObjTipoUsuario() {
         return objTipoUsuario;
@@ -23,10 +31,6 @@ public class cUsuario {
     public void setObjTipoUsuario(cTipoUsuario objTipoUsuario) {
         this.objTipoUsuario = objTipoUsuario;
     }
-    
-    public cUsuario()
-    {   }
-
 
     public int getIdusuario() {
         return idusuario;
@@ -60,9 +64,4 @@ public class cUsuario {
         this.estado = estado;
     }
 
-  
-    
-    
-   
-    
 }

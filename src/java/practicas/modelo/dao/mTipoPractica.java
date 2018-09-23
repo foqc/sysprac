@@ -32,8 +32,8 @@ public class mTipoPractica {
             while (rs.next()) {
                 cTipoPractica obj = new cTipoPractica();
                 obj.setIdTipoPractica(rs.getInt("idtipopractica"));
+                obj.setCodigo(rs.getString("codigo"));
                 obj.setNombre(rs.getString("nombre"));
-                obj.setNombre(rs.getString("codigo"));
                 obj.setEstado(rs.getBoolean("estado"));
                 lista.add(obj);
             }

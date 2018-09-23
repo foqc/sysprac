@@ -40,12 +40,15 @@ public class mPractica {
         boolean resp = false;
         try {
             StringBuilder sql = new StringBuilder();
-            sql.append("");
+            sql.append("insert into ");
+            sql.append("practica (nombre,descripcion,empresa,idestadopractica,idusuario,idtipopractica,codigoescuela) ");
+            sql.append("values ( ?,?,?,?,?,?,?); ");
+
             ArrayList<Parametro> lstParam = new ArrayList<>();
             lstParam.add(new Parametro(1, obj.getNombre()));
             lstParam.add(new Parametro(2, obj.getDescripcion()));
             lstParam.add(new Parametro(3, obj.getEmpresa()));
-            lstParam.add(new Parametro(4, obj.getObjEstadoPractica().getIdestadopractica()));
+            lstParam.add(new Parametro(4, obj.getObjEstadoPractica().getIdEstadoPractica()));
             lstParam.add(new Parametro(5, obj.getObjUsuario().getIdusuario()));
             lstParam.add(new Parametro(6, obj.getObjTipoPractica().getIdTipoPractica()));
             lstParam.add(new Parametro(7, obj.getCodigoEscuela()));
