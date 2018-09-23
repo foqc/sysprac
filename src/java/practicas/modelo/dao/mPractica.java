@@ -36,7 +36,7 @@ public class mPractica {
         return obj;
     }
 
-    public static boolean insertar(cPractica obj) {
+    public static boolean insertar(cPractica obj) throws Exception {
         boolean resp = false;
         try {
             StringBuilder sql = new StringBuilder();
@@ -48,11 +48,11 @@ public class mPractica {
             lstParam.add(new Parametro(4, obj.getObjEstadoPractica().getIdestadopractica()));
             lstParam.add(new Parametro(5, obj.getObjUsuario().getIdusuario()));
             lstParam.add(new Parametro(6, obj.getObjTipoPractica().getIdtipopractica()));
-            lstParam.add(new Parametro(7, obj.getObjPlanificacion().getIdplanificacion()));
             lstParam.add(new Parametro(7, obj.getCodigoEscuela()));
+            resp = AccesoDatos.ejecutarComando(sql.toString(), lstParam);
         } catch (Exception e) {
+            throw e;
         }
         return resp;
     }
-
 }

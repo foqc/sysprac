@@ -12,50 +12,54 @@ import java.sql.Date;
  * @author Jhonathan
  */
 public class cPlanificacion {
-   private int idplanificacion;
-   private Date fechainicio;
-   private Date fechafin;
-   private int totalhoras;
 
-    public cPlanificacion(int idplanificacion, Date fechainicio, Date fechafin, int totalhoras) {
-        this.idplanificacion = idplanificacion;
-        this.fechainicio = fechainicio;
-        this.fechafin = fechafin;
-        this.totalhoras = totalhoras;
+    private int idPlanificacion;
+    private Date fechaInicio;
+    private Date fechaFin;
+    private int totalHoras;
+    private cPractica objPractica;
+
+    public cPlanificacion() {
     }
 
-    public int getIdplanificacion() {
-        return idplanificacion;
+    public int getIdPlanificacion() {
+        return idPlanificacion;
     }
 
-    public void setIdplanificacion(int idplanificacion) {
-        this.idplanificacion = idplanificacion;
+    public void setIdPlanificacion(int idPlanificacion) {
+        this.idPlanificacion = idPlanificacion;
     }
 
-    public Date getFechainicio() {
-        return fechainicio;
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setFechainicio(Date fechainicio) {
-        this.fechainicio = fechainicio;
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechafin() {
-        return fechafin;
+    public Date getFechaFin() {
+        return fechaFin;
     }
 
-    public void setFechafin(Date fechafin) {
-        this.fechafin = fechafin;
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
-    public int getTotalhoras() {
-        return totalhoras;
+    public int getTotalHoras() {
+        return totalHoras;
     }
 
-    public void setTotalhoras(int totalhoras) {
-        this.totalhoras = totalhoras;
+    public void setTotalHoras(int totalHoras) {
+        this.totalHoras = totalHoras;
     }
-   
-    
-    
+
+    public cPractica getObjPractica() {
+        return objPractica;
+    }
+
+    public void setObjPractica(cPractica objPractica) {
+        this.objPractica = objPractica;
+    }
+
 }

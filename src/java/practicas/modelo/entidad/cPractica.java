@@ -18,7 +18,6 @@ public class cPractica {
     private cEstadoPractica objEstadoPractica;
     private cUsuario objUsuario;
     private cTipoPractica objTipoPractica;
-    private cPlanificacion objPlanificacion;
     private String codigoEscuela;
 
     public cPractica() {
@@ -78,14 +77,6 @@ public class cPractica {
 
     public void setObjTipoPractica(cTipoPractica objTipoPractica) {
         this.objTipoPractica = objTipoPractica;
-    }
-
-    public cPlanificacion getObjPlanificacion() {
-        return objPlanificacion;
-    }
-
-    public void setObjPlanificacion(cPlanificacion objPlanificacion) {
-        this.objPlanificacion = objPlanificacion;
     }
 
     public String getCodigoEscuela() {
