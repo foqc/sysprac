@@ -44,16 +44,41 @@ public class mTipoPractica {
         return lista;
     }
 
+    public static List<cTipoPractica> obetenerTodos() throws Exception {
+        List lista = new ArrayList();
+        StringBuilder sql = new StringBuilder();
+        try {
+            sql.append("select * ");
+            sql.append("from tipopractica ");
+            sql.append("order by idtipopractica; ");
+            ArrayList<Parametro> lstParam = new ArrayList<>();
+            lstParam.add(new Parametro(1, true));
+            ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
+            while (rs.next()) {
+                cTipoPractica obj = new cTipoPractica();
+                obj.setIdTipoPractica(rs.getInt("idtipopractica"));
+                obj.setCodigo(rs.getString("codigo"));
+                obj.setNombre(rs.getString("nombre"));
+                obj.setEstado(rs.getBoolean("estado"));
+                lista.add(obj);
+            }
+
+        } catch (Exception e) {
+            throw e;
+        }
+        return lista;
+    }
+
     public static cTipoPractica obetenerPorId(int id) throws Exception {
         cTipoPractica obj = new cTipoPractica();
         StringBuilder sql = new StringBuilder();
         try {
-            sql.append("SELECT * FROM tipopractica where idetipopractica=? order by idetipopractica");
+            sql.append("SELECT * FROM tipopractica where idtipopractica=? order by idtipopractica");
             ArrayList<Parametro> lstParam = new ArrayList<>();
             lstParam.add(new Parametro(1, id));
             ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
             while (rs.next()) {
-                obj.setIdTipoPractica(rs.getInt("idetipopractica"));
+                obj.setIdTipoPractica(rs.getInt("idtipopractica"));
                 obj.setNombre(rs.getString("nombre"));
                 obj.setEstado(rs.getBoolean("estado"));
             }

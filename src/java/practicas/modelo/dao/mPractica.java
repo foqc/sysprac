@@ -58,4 +58,51 @@ public class mPractica {
         }
         return resp;
     }
+
+    public static boolean actualizar(cPractica obj) throws Exception {
+        boolean resp = false;
+        try {
+            StringBuilder sql = new StringBuilder();
+            sql.append("update practica set  ");
+            sql.append("nombre=?,descripcion=?,empresa=?,idestadopractica=?,idusuario=?,idtipopractica=?,codigoescuela=? ");
+            sql.append("where idpractica=?; ");
+
+            ArrayList<Parametro> lstParam = new ArrayList<>();
+            lstParam.add(new Parametro(1, obj.getNombre()));
+            lstParam.add(new Parametro(2, obj.getDescripcion()));
+            lstParam.add(new Parametro(3, obj.getEmpresa()));
+            lstParam.add(new Parametro(4, obj.getObjEstadoPractica().getIdEstadoPractica()));
+            lstParam.add(new Parametro(5, obj.getObjUsuario().getIdusuario()));
+            lstParam.add(new Parametro(6, obj.getObjTipoPractica().getIdTipoPractica()));
+            lstParam.add(new Parametro(7, obj.getCodigoEscuela()));
+            lstParam.add(new Parametro(8, obj.getIdPractica()));
+            resp = AccesoDatos.ejecutarComando(sql.toString(), lstParam);
+        } catch (Exception e) {
+            throw e;
+        }
+        return resp;
+    }
+
+    public static cPractica obetenerPorIdUsuarioPorIdEstado(int idUsuario, int idEstado) throws Exception {
+        cPractica obj = new cPractica();
+        StringBuilder sql = new StringBuilder();
+        try {
+            sql.append("select * ");
+            sql.append("from practica ");
+            sql.append("where idUsuario=? ");
+            sql.append("and idestadosolicitado=?; ");
+            ArrayList<Parametro> lstParam = new ArrayList<>();
+            lstParam.add(new Parametro(1, idUsuario));
+            lstParam.add(new Parametro(2, idEstado));
+            ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
+            while (rs.next()) {
+                obj.setIdPractica(rs.getInt("idetipopractica"));
+                obj.setNombre(rs.getString("nombre"));
+                obj.setDescripcion(rs.getString("descripcion"));
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+        return obj;
+    }
 }
