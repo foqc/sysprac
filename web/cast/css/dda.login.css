@@ -1,0 +1,224 @@
+body {
+    background-image: url(../images/login_fondo.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 100% 100%, auto;
+
+    -o-background-size: 100% 100%, auto;
+    -moz-background-size: 100% 100%, auto;
+    -webkit-background-size: 100% 100%, auto;
+}
+
+#loginContainer {
+    height: 100%;
+    width: 100%;
+
+    min-height: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+}
+
+#loginMain {
+    margin: 0px;
+
+    height: 100%;
+    width: 100%;
+}
+
+#loginMainLeft{
+    position: absolute;
+
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+
+#loginMainRight {
+    background-color: rgba(0, 137, 60, 0.71);
+
+    background-image: url(../images/llama_login.png); /*321 x 433*/
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-attachment: fixed;
+    background-size: 321px 433px, auto;
+
+    vertical-align: middle;
+
+    -o-background-size: 321px 433px, auto;
+    -moz-background-size: 321px 433px, auto;
+    -webkit-background-size: 321px 433px, auto;
+
+    position: absolute;
+
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+}
+
+#loginError {
+    color: red;
+    background-color: rgba(254, 254, 254, 0.7);
+
+    margin: 0.5rem auto;
+    width: 15.5rem;
+}
+
+#loginTitulo {
+    color: rgb(254, 254, 254);
+    text-align: right;
+
+    margin: auto;
+    width: 13.5rem;
+}
+
+#escudoESPOCH {
+    width: 153px;
+    height: 153px;
+
+    top: 1rem;
+    text-align: left;
+    position: relative;
+    
+    z-index: 5;
+}
+
+#nombreSistema {
+    color: rgb(254, 254, 254) !important;
+    text-align: right;
+    top: 1rem;
+    position: relative;
+}
+
+#nombreSistema #nombre {
+    display: inline-block;
+
+    font-size: 3rem;
+    line-height: 3rem;
+}
+
+#formContainer {
+    position: relative;
+    top: 20%;
+}
+
+#formText {
+    border: 1px solid white;
+    border-radius: 3px;
+
+    width: 15rem;
+    height: 8.5rem;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#formContainerButton {
+    text-align: right;
+    padding-right: .5rem;
+}
+
+#formButton {
+    cursor: pointer;
+}
+
+#ddaCuenta, 
+#ddaClave,
+#formButton {
+    margin: .3rem 0rem .2rem 0rem;
+    padding: .3rem;
+    color: rgb(254, 254, 254);
+    background-color: transparent;
+
+    border-color: rgb(254, 254, 254);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+}
+
+#ddaCuenta:hover, 
+#ddaCuenta:focus, 
+#ddaClave:hover, 
+#ddaClave:focus,
+#formButton:hover, 
+#formButton:focus {
+    color: rgb(254, 254, 254) !important;
+    border-color: rgb(254, 254, 254);
+}
+
+#ddaCuenta,
+#ddaClave {
+    width: 95%;
+}
+
+#informacionESPOCH {
+    color: rgb(254, 254, 254) !important;
+    font-size: 0.6rem;
+
+    position: absolute;
+    bottom: 2px;
+    width: 96%;
+}
+
+#informacionESPOCH hr{
+    height: 1px;
+    color: rgb(254, 254, 254) !important;
+    background-color: rgb(254, 254, 254) !important;
+    border: none;
+
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+}
+
+@media screen and (max-width:990px) { 
+    #nombreSistema #nombre {
+        /*display: inline-block;*/
+
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+}
+
+@media screen and (max-width:680px) { 
+    #nombreSistema #nombre {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+
+    #informacionESPOCH {
+        font-size: 0.5rem;
+        width: 90%;
+    }
+
+    #escudoESPOCH img {
+        width: 60%;
+        height: 60%;
+    }
+    
+    #loginMainRight {
+        width: 70% !important;
+    }
+}
+
+@media screen and (max-width:460px) { 
+    #nombreSistema #nombre {
+        font-size: 1rem;
+        line-height: 1rem;
+    }
+
+    #informacionESPOCH {
+        font-size: 0.5rem;
+        width: 90%;
+    }
+
+    #escudoESPOCH img {
+        width: 30%;
+        height: 30%;
+    }
+    
+    #loginMainRight {
+        width: 100% !important;
+    }
+}
