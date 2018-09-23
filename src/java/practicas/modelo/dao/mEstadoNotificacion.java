@@ -18,8 +18,8 @@ import practicas.modelo.entidad.cTipoNotificacion;
  * @author Jhonathan
  */
 public class mEstadoNotificacion {
-    
-   public static List<cTipoNotificacion> obtenerTodos() throws Exception {
+
+    public static List<cTipoNotificacion> obtenerTodos() throws Exception {
         List lista = new ArrayList();
         StringBuilder sql = new StringBuilder();
         try {
@@ -41,18 +41,17 @@ public class mEstadoNotificacion {
         return lista;
     }
 
-    public static cTipoNotificacion obtenerporId(int idtiponotificaciones) throws Exception {
-        cTipoNotificacion obj = null;
+    public static cEstadoNotificacion obtenerporId(int idestadonotificacion) throws Exception {
+        cEstadoNotificacion obj = null;
         StringBuilder sql = new StringBuilder();
-        sql.append("SELECT * FROM etipousuario where idtipousuario=? order by idtipousuario");
+        sql.append("SELECT * FROM estadonotificacion where idestadonotificacion=? order by idestadonotificacion");
         ArrayList<Parametro> lstParam = new ArrayList<>();
-        lstParam.add(new Parametro(1, idtiponotificaciones));
+        lstParam.add(new Parametro(1, idestadonotificacion));
         ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
         try {
             while (rs.next()) {
-                obj.setIdtiponotificacion(rs.getInt("idtiponotificacion"));
+                obj.setIdestadonotificacion(rs.getInt("idestadonotificacion"));
                 obj.setNombre(rs.getString("nombre"));
-                obj.setDescripcion(rs.getString("descripcion"));
                 obj.setEstado(rs.getBoolean("estado"));
             }
         } catch (Exception e) {
@@ -60,4 +59,6 @@ public class mEstadoNotificacion {
         }
         return obj;
     }
+
+    
 }
