@@ -63,7 +63,7 @@ public class AccesoDatos {
     //</editor-fold>
 
     //<editor-fold desc="Ejecutar ejecutarQuery(String query, ArrayList<Parametro> param)">
-    public static ConjuntoResultado ejecutarQuery(String query, ArrayList<Parametro> param) throws Exception {
+        public static ConjuntoResultado ejecutarQuery(String query, ArrayList<Parametro> param) throws Exception {
         long inicio = System.currentTimeMillis();
         double tiempo;
 

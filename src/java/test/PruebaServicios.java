@@ -5,6 +5,10 @@
  */
 package test;
 
+import java.util.List;
+import practicas.modelo.dao.mTipoPractica;
+import practicas.modelo.entidad.cTipoPractica;
+
 /**
  *
  * @author Programador
@@ -14,8 +18,17 @@ public class PruebaServicios {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws Exception {
+       
+        try {
+            List<cTipoPractica> lst = mTipoPractica.obetenerTodos();
+            for (cTipoPractica obj : lst) {
+                System.out.println("Nombre: " + obj.getNombre());
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+      
     }
-    
+
 }

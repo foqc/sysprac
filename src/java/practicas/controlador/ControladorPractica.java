@@ -8,6 +8,8 @@ package practicas.controlador;
 import javax.inject.Named;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import practicas.modelo.dao.mPractica;
 import practicas.modelo.entidad.cPractica;
@@ -17,8 +19,8 @@ import practicas.modelo.entidad.cTipoPractica;
  *
  * @author Programador
  */
-@Named
-@ViewScoped
+@ManagedBean
+@RequestScoped
 public class ControladorPractica implements Serializable {
 
     private cPractica objPractica;
@@ -55,4 +57,7 @@ public class ControladorPractica implements Serializable {
         } catch (Exception e) {
         }
     }
+    
+    
+    
 }

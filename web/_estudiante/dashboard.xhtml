@@ -2,7 +2,8 @@
                 xmlns:h="http://java.sun.com/jsf/html"  
                 xmlns:f="http://java.sun.com/jsf/core"  
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="../template/mainEstudiante.xhtml">
+                template="../template/mainEstudiante.xhtml"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <ui:define name="libreriaEncabezado">  
         <!-- GLOBAL STYLES -->
         <!--END GLOBAL STYLES -->
@@ -13,28 +14,29 @@
 
     <ui:define name="content">                        
         <div class="sd">
-            <form>
+            <h:form > 
                 <div class="form-group">
-                    <label for="nombrePractica">Nombre:</label>
-                    <input type="text" class="form-control" id="nombrePractica"/>
+                    <label for="nombrePractica" class="font-weight-bold">Nombre:</label>
+                    <h:inputText  id="nombrePractica"  class="form-control" value="#{controladorPractica.objPractica.nombre}"/>
                 </div>
                 <div class="form-group">
-                    <label for="descripcionPractica">Descripción:</label>
-                    <input type="text" class="form-control" id="descripcionPractica"/>
+                    <label for="descripcionPractica" class="font-weight-bold">Descripción:</label>
+                    <h:inputText  id="descripcionPractica"  class="form-control" value="#{controladorPractica.objPractica.descripcion}"/>
                 </div>
                 <div class="form-group">
-                    <label for="nombreEmpresa">Empresa:</label>
-                    <input type="text" class="form-control" id="nombreEmpresa"/>
+                    <label for="nombreEmpresa" class="font-weight-bold">Empresa:</label>
+                    <h:inputText  id="nombreEmpresa"  class="form-control" value="#{controladorPractica.objPractica.empresa}"/>
                 </div>
                 <div class="form-group">
-                    <label for="tipoPractica">Tipo de Prácticas</label>
-                    <h:selectOneMenu id="txtTipoPractica" value="#{controladorPractica.objPractica.objTipoPractica.idTipoPractica}"  >
-                        <f:selectItem itemLabel="   seleccione un " itemValue=""  noSelectionOption="true"/>
-                        <f:selectItems value="#{items.selectOneItems}" />
+                    <label for="nombreEmpresa" class="font-weight-bold">Tipo de Práctica:</label>
+                    <h:selectOneMenu  class="form-group" value="idTipopractica">
+                        <f:selectItem class="form-group" itemValue="1" itemLabel="Prácticas" />
+                        <f:selectItem class="form-group" itemValue="2" itemLabel="Pasantías" /> 
+                         <f:selectItem class="form-group" itemValue="3" itemLabel="Proyectos Investigación" /> 
                     </h:selectOneMenu>
                 </div>
-                <button type="submit" class="btn btn-primary">Guardar</button>
-            </form>
+                <h:commandButton class="btn-btn btn-primary btn-lg active" value="Guardar" action="#{controladorPractica.insertar()}"/>
+            </h:form>
         </div>
     </ui:define>
 </ui:composition>        
