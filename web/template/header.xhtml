@@ -1,7 +1,8 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
     <!-- **********************************************************************************************************************************************************
     TOP BAR CONTENT & NOTIFICATIONS
     *********************************************************************************************************************************************************** -->
@@ -24,11 +25,18 @@
                     <i class="material-icons md-24 md-light">add_alert</i>
                     <span class="badge badge-secondary notify-icon">#{controladorNotificacion.lstNotifPorUsuario.size()}</span>
                 </button>
-                <div class="dropdown-menu drop-default notify-container" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModal">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+                
+                <h:selectOneMenu class="dropdown-menu drop-default notify-container"  value="#{controladorNotificacion.lstNotifPorUsuario}">
+                    <f:selectItems class="dropdown-item" value="#{controladorNotificacion.lstNotifPorUsuario}" var="lista"
+                                   itemLabel="Notificacion:" itemValue="#{lista.mensaje}"	/>
+    		</h:selectOneMenu>
+                
+               
+                
+                
+
+                
+
             </div>
         </div>
         <div class="user-label">
