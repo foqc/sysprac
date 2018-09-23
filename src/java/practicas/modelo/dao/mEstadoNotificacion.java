@@ -5,7 +5,13 @@
  */
 package practicas.modelo.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+import practicas.modelo.accesodatos.AccesoDatos;
+import practicas.modelo.accesodatos.ConjuntoResultado;
+import practicas.modelo.accesodatos.Parametro;
 import practicas.modelo.entidad.cEstadoNotificacion;
+import practicas.modelo.entidad.cTipoNotificacion;
 
 /**
  *
