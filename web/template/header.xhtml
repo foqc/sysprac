@@ -25,10 +25,12 @@
                     <i class="material-icons md-24 md-light">add_alert</i>
                     <span class="badge badge-secondary notify-icon">#{controladorNotificacion.lstNotifPorUsuario.size()}</span>
                 </button>
-                <h:selectOneMenu class="dropdown-menu drop-default notify-container"  value="#{controladorNotificacion.lstNotifPorUsuario}">
-                    <f:selectItems class="dropdown-item" value="#{controladorNotificacion.lstNotifPorUsuario}" var="lista"
-                                   itemLabel="Notificacion:" itemValue="#{lista.mensaje}"	/>
-    		</h:selectOneMenu>            
+                <h:form>
+                    <h:selectOneMenu class="dropdown-menu drop-default notify-container" value="#{controladorNotificacion.lstNotifPorUsuario}">
+                        <f:selectItems class="dropdown-item" value="#{controladorNotificacion.lstNotifPorUsuario}" var="lista"
+                                       itemLabel="#{lista.mensaje}"/>
+                    </h:selectOneMenu>                
+                </h:form>
             </div>
         </div>
         <div class="user-label">
