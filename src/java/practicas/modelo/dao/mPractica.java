@@ -23,12 +23,12 @@ public class mPractica {
         cPractica obj = new cPractica();
         StringBuilder sql = new StringBuilder();
         try {
-            sql.append("SELECT * FROM tipopractica where idtipopractica=? order by idtipopractica");
+            sql.append("SELECT * FROM practica where idpractica=? order by idpractica");
             ArrayList<Parametro> lstParam = new ArrayList<>();
             lstParam.add(new Parametro(1, id));
             ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
             while (rs.next()) {
-                obj.setIdPractica(rs.getInt("idtipopractica"));
+                obj.setIdPractica(rs.getInt("idpractica"));
                 obj.setNombre(rs.getString("nombre"));
                 obj.setDescripcion(rs.getString("descripcion"));
             }
