@@ -43,12 +43,13 @@ public class mTipoNotificacion {
     public static cTipoNotificacion obtenerporId(int idtiponotificaciones) throws Exception {
         cTipoNotificacion obj = null;
         StringBuilder sql = new StringBuilder();
-        sql.append("SELECT * FROM etipousuario where idtipousuario=? order by idtipousuario");
+        sql.append("SELECT * FROM tiponotificacion where idtiponotificacion=? order by idtiponotificacion");
         ArrayList<Parametro> lstParam = new ArrayList<>();
         lstParam.add(new Parametro(1, idtiponotificaciones));
         ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
         try {
             while (rs.next()) {
+                obj = new cTipoNotificacion();
                 obj.setIdTipoNotificacion(rs.getInt("idtiponotificacion"));
                 obj.setNombre(rs.getString("nombre"));
                 obj.setDescripcion(rs.getString("descripcion"));

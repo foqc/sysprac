@@ -27,6 +27,7 @@
         <!-- <f:metadata>
             <f:event type="preRenderView" listener="{loginBean.verifySession()}"/>
         </f:metadata> -->
+        <f:event type="preRenderView" listener="#{controladorPlantilla.verificarSesion()}"/>
     </h:head>
 
     <h:body>
