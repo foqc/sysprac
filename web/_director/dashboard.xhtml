@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:f="http://java.sun.com/jsf/core"  
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../template/mainDocente.xhtml">
+    <ui:define name="libreriaEncabezado">  
+        <!-- GLOBAL STYLES -->
+        <!--END GLOBAL STYLES -->
+    </ui:define>
+    <ui:define name="title">
+        <h:outputText value="SysPrac | Panel de Control"></h:outputText>
+    </ui:define>
+
+    <ui:define name="content">                      
+        <h:form>
+            <h:dataTable class="table" value="#{controladorPractica.lstPracticasSolicitadas}" var="dato">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Estudiante:"></h:outputText>
+                    </f:facet>
+                    <h:outputText value="#{dato.objUsuario.nombre}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nombre:"></h:outputText>
+                    </f:facet>
+                    <h:outputText value="#{dato.nombre}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Estado:"></h:outputText>
+                    </f:facet>
+                    <h:outputText value="#{dato.objEstadoPractica.nombre}"></h:outputText>
+                </h:column>
+                <h:column>
+
+                    <button type="button" class="btn btn-primary btn-xs"  data-toggle="modal" data-target="#modalAprobacion" action="#{controladorUsuario.cargarDocentes()}">Asignar</button>                    
+                    <button class="btn btn-success btn-xs" action="#{holaMundo.removeValor(dato)}">Aprobar</button>
+                    <button class="btn btn-danger btn-xs"  action="#{holaMundo.removeValor(dato)}">Rechazar</button>
+                    
+
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+
