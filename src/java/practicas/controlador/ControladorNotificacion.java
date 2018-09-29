@@ -33,9 +33,13 @@ public class ControladorNotificacion implements Serializable {
     public ControladorNotificacion() {
     }
 
+    public cUsuario getUs() {
+        return us;
+    }
+
     @PostConstruct
     public void init() {
-        cargarNotificacionesPorIdUsuario(2);
+        cargarNotificacionesPorIdUsuario(us.getIdusuario());
     }
 
     public List<cNotificacion> getLstNotifPorUsuario() {
