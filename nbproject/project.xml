@@ -12,11 +12,10 @@
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <web-module-libraries>
                 <library dirs="200">
-<<<<<<< HEAD
-                    <file>${file.reference.postgresql-9.4.1209.jre7.jar}</file>
-=======
-                    <file>${libs.PostgreSQLDriver.classpath}</file>
->>>>>>> 39435a0dec401a07f60c68daafc11fb66c240fa3
+                    <file>${&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.postgresql-42.1.4.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
