@@ -114,4 +114,29 @@ public class mUsuario {
 
     }
 
+    public static cUsuario obtenerPorIdTipoUsuario(int idTipoUsuario) throws Exception {
+        cUsuario obj = null;
+        StringBuilder sql = new StringBuilder();
+        try {
+            sql.append("select * ");
+            sql.append("from usuario ");
+            sql.append("where idtipousuario=? ");
+            ArrayList<Parametro> lstParam = new ArrayList<>();
+            lstParam.add(new Parametro(1, idTipoUsuario));
+            ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql.toString(), lstParam);
+            while (rs.next()) {
+                obj = new cUsuario();
+                obj.setIdusuario(rs.getInt("idusuario"));
+                obj.setCedula(rs.getString("cedula"));
+                obj.setNombre(rs.getString("nombre"));
+                obj.setObjTipoUsuario(mTipoUsuario.obetenerPorId(rs.getInt("idtipousuario")));
+                obj.setEstado(rs.getBoolean("estado"));
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+        return obj;
+
+    }
+
 }
