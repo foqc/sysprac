@@ -10,8 +10,10 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import practicas.modelo.dao.mNotificacion;
 import practicas.modelo.entidad.cNotificacion;
+import practicas.modelo.entidad.cUsuario;
 import practicas.recursos.Util;
 
 /**
@@ -23,6 +25,7 @@ import practicas.recursos.Util;
 public class ControladorNotificacion implements Serializable {
 
     private List<cNotificacion> lstNotifPorUsuario;
+    private final cUsuario us = (cUsuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
 
     /**
      * Creates a new instance of ControladorNotificacion
@@ -32,7 +35,7 @@ public class ControladorNotificacion implements Serializable {
 
     @PostConstruct
     public void init() {
-        cargarNotificacionesPorIdUsuario(3);
+        cargarNotificacionesPorIdUsuario(2);
     }
 
     public List<cNotificacion> getLstNotifPorUsuario() {
@@ -50,5 +53,4 @@ public class ControladorNotificacion implements Serializable {
             Util.fatalMessage("Error (Try-Catch) (cargarNotificacionesPorIdUsuario): ", e.getMessage());
         }
     }
-
 }
