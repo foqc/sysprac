@@ -24,9 +24,7 @@
         </f:facet>
 
         <title><ui:insert name="title">Default Title</ui:insert></title>
-        <!-- <f:metadata>
-            <f:event type="preRenderView" listener="{loginBean.verifySession()}"/>
-        </f:metadata> -->
+        <f:event type="preRenderView" listener="#{controladorPlantilla.verificarSesion()}"/>
     </h:head>
 
     <h:body>

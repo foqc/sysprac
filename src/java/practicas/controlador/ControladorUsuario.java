@@ -10,6 +10,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import practicas.modelo.dao.mUsuario;
 import practicas.modelo.entidad.cPractica;
 import practicas.modelo.entidad.cUsuario;
@@ -24,6 +25,7 @@ import practicas.recursos.Util;
 public class ControladorUsuario implements Serializable {
 
     private List<cUsuario> lstDocentes;
+    private final cUsuario us = (cUsuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
 
     /**
      * Creates a new instance of controladorUsuario
@@ -43,6 +45,10 @@ public class ControladorUsuario implements Serializable {
 
     public void setLstDocentes(List<cUsuario> lstDocentes) {
         this.lstDocentes = lstDocentes;
+    }
+
+    public cUsuario getUs() {
+        return us;
     }
 
     public void cargarDocentes() {
