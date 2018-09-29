@@ -106,6 +106,17 @@ body{
     display: none;
 }
 
+.notify-dropdown{
+    font-size: 12px;
+    width: 100%;
+    max-height: 200px;
+    overflow: auto;
+}
+
+.dropdown-item-size{
+    cursor: pointer;
+}
+
 .btn .notify-icon{
     top: -15px;
     background-color: #dc3545;

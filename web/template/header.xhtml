@@ -23,14 +23,18 @@
                 <button class="btn btn-transparent dropdown-toggle dropdown-toggle-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                     <i class="material-icons md-24 md-light">add_alert</i>
-                    <span class="badge badge-secondary notify-icon">#{controladorNotificacion.lstNotifPorUsuario.size()}</span>
+                    <span class="badge badge-secondary notify-icon">#{controladorNotificacion.lstNotifPorUsuario.size() > 0 ? controladorNotificacion.lstNotifPorUsuario.size() : ''}</span>
                 </button>
-                <h:form>
-                    <h:selectOneMenu class="dropdown-menu drop-default notify-container" value="#{controladorNotificacion.lstNotifPorUsuario}">
-                        <f:selectItems class="dropdown-item" value="#{controladorNotificacion.lstNotifPorUsuario}" var="lista"
-                                       itemLabel="#{lista.mensaje}"/>
-                    </h:selectOneMenu>                
-                </h:form>
+                <div class="dropdown-menu notify-dropdown" aria-labelledby="dropdownMenuButton">
+                    <c:if test="#{controladorNotificacion.lstNotifPorUsuario.size() eq 0}" >
+                        <a class="dropdown-item" href="#">No hay notificaciones</a>
+                    </c:if>
+                    <c:forEach var="notificacion" items="#{controladorNotificacion.lstNotifPorUsuario}">
+                        <a class="dropdown-item dropdown-item-size text-justify text-truncate" onclick="notify('#{notificacion.mensaje}')">
+                            #{notificacion.mensaje}
+                        </a>
+                    </c:forEach>
+                </div>
             </div>
         </div>
         <div class="user-label">
