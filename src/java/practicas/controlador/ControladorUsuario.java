@@ -33,6 +33,7 @@ public class ControladorUsuario implements Serializable {
 
     @PostConstruct
     public void init() {
+        cargarDocentes();
 
     }
 

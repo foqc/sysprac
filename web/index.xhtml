@@ -40,19 +40,17 @@
                                 <div class="row">
                                     <div id="loginTitulo">Ingreso de Usuario</div>
                                     <h:form id="formText">
-
                                         <div>
-                                            <input type="text" id="ddaCuenta" name="cuenta" a:placeholder="Cuenta">
-                                            </input>
+                                            <h:inputText  value="#{controladorLogin.objUsuario.cedula}"></h:inputText>
                                         </div>  
 
                                         <div>
-                                            <input type="password" id="ddaClave" name="clave" a:placeholder="Clave">
-                                            </input>
+                                            <h:inputSecret value="#"></h:inputSecret>
                                         </div> 
+
                                         <div id="formContainerButton">
-                                            <button id="formButton" type="submit">Iniciar Sesión</button>
-                                        </div>
+                                            <h:commandButton  value="Iniciar Sesión" action="#{controladorLogin.iniciarSesion()}" ></h:commandButton>
+                                        </div> 
                                     </h:form>
                                     <output id="loginError">
                                     </output>

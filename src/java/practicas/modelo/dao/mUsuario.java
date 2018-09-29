@@ -22,7 +22,7 @@ public class mUsuario {
         cUsuario obj = null;
         String sql;
         try {
-            sql = "SELECT * FROM seguridad.usuario WHERE cedula=?";
+            sql = "SELECT * FROM usuario WHERE cedula=?";
             ArrayList<Parametro> lstParam = new ArrayList<>();
             lstParam.add(new Parametro(1, cedula));
             ConjuntoResultado rs = AccesoDatos.ejecutarQuery(sql, lstParam);
