@@ -6,6 +6,7 @@
 package practicas.controlador;
 
 import java.io.Serializable;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
@@ -37,6 +38,11 @@ public class ControladorLogin implements Serializable {
         this.objUsuario = objUsuario;
     }
 
+    @PostConstruct
+    public void init() {
+        objUsuario = new cUsuario();
+    }
+
     public String iniciarSesion() {
         String redireccion = null;
         try {
@@ -57,7 +63,6 @@ public class ControladorLogin implements Serializable {
                     default:
                         break;
                 }
-
             } else {
                 Util.warnMessage("Aviso", "Credenciales Incorrectas");
             }

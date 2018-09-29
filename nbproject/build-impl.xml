@@ -795,7 +795,16 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
         </macrodef>
     </target>
     <target name="-init-taskdefs">
-
+        <fail unless="libs.CopyLibs.classpath">
+The libs.CopyLibs.classpath property is not set up.
+This property must point to 
+org-netbeans-modules-java-j2seproject-copylibstask.jar file which is part
+of NetBeans IDE installation and is usually located at 
+&lt;netbeans_installation&gt;/java&lt;version&gt;/ant/extra folder.
+Either open the project in the IDE and make sure CopyLibs library
+exists or setup the property manually. For example like this:
+ ant -Dlibs.CopyLibs.classpath=a/path/to/org-netbeans-modules-java-j2seproject-copylibstask.jar
+                </fail>
         <taskdef classpath="${libs.CopyLibs.classpath}" resource="org/netbeans/modules/java/j2seproject/copylibstask/antlib.xml"/>
     </target>
     <target name="-init-ap-cmdline-properties">
@@ -925,7 +934,22 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
     <target depends="compile" if="jsp.includes" name="-do-compile-single-jsp">
         <fail unless="javac.jsp.includes">Must select some files in the IDE or set javac.jsp.includes</fail>
         <mkdir dir="${build.generated.dir}/src"/>
-   
+        <java classname="org.netbeans.modules.web.project.ant.JspCSingle" failonerror="true" fork="true">
+            <arg value="-uriroot"/>
+            <arg file="${basedir}/${build.web.dir}"/>
+            <arg value="-d"/>
+            <arg file="${basedir}/${build.generated.dir}/src"/>
+            <arg value="-die1"/>
+            <arg value="-schemas ${jspc.schemas}"/>
+            <arg value="-dtds ${jspc.dtds}"/>
+            <arg value="-sysClasspath ${libs.jsp-compilation-syscp.classpath}"/>
+            <arg value="-jspc.files"/>
+            <arg path="${jsp.includes}"/>
+            <arg value="-compilerSourceVM ${javac.source}"/>
+            <arg value="-compilerTargetVM ${javac.target}"/>
+            <arg value="-javaEncoding ${source.encoding}"/>
+            <classpath path="${java.home}/../lib/tools.jar:${libs.jsp-compiler.classpath}:${libs.jsp-compilation.classpath}"/>
+        </java>
         <mkdir dir="${build.generated.dir}/classes"/>
         <webproject2:javac classpath="${build.classes.dir}:${libs.jsp-compilation.classpath}:${javac.classpath}:${j2ee.platform.classpath}" destdir="${build.generated.dir}/classes" srcdir="${build.generated.dir}/src">
             <customize>
@@ -974,12 +998,12 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
     </target>
     <target depends="init,compile,compile-jsps,-pre-dist,-do-dist-with-manifest,-do-dist-without-manifest" name="do-dist"/>
     <target depends="init" if="dist.ear.dir" name="library-inclusion-in-manifest">
-        <copyfiles files="${file.reference.postgresql-9.4.1209.jre7.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.postgresql-42.1.4.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <mkdir dir="${build.web.dir}/META-INF"/>
         <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
     <target depends="init" name="library-inclusion-in-archive" unless="dist.ear.dir">
-
+        
     </target>
     <target depends="init" if="dist.ear.dir" name="-clean-webinf-lib">
         <delete dir="${build.web.dir}/WEB-INF/lib"/>
@@ -1390,8 +1414,8 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
     <target depends="init,-pre-debug-fix,-do-debug-fix-test" if="netbeans.home" name="debug-fix-test"/>
     <!--
                 
-        CLEANUP SECTION
-    -->
+                CLEANUP SECTION
+            -->
     <target depends="init" name="deps-clean" unless="no.deps"/>
     <target depends="init" name="do-clean">
         <condition property="build.dir.to.clean" value="${build.web.dir}">
@@ -1401,6 +1425,7 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
         <delete includeEmptyDirs="true" quiet="true">
             <fileset dir="${build.dir.to.clean}/WEB-INF/lib"/>
         </delete>
+        <delete dir="${build.dir}"/>
         <available file="${build.dir.to.clean}/WEB-INF/lib" property="status.clean-failed" type="dir"/>
         <delete dir="${dist.dir}"/>
     </target>

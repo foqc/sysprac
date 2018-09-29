@@ -113,7 +113,7 @@ public class ControladorPractica implements Serializable {
             objPractica.setObjEstadoPractica(new cEstadoPractica(2)); //2=Solicitada
             mPractica.actualizar(objPractica);
             cNotificacion obj = new cNotificacion();
-            obj.setMensaje("Mensaje Test 1");
+            obj.setMensaje("Estimado director, ");
             obj.setFechaGeneracion(new Date());
             obj.setObjUsuario(new cUsuario(2));
             obj.setObjPractica(objPractica);
