@@ -11,6 +11,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import practicas.modelo.dao.mNotificacion;
 import practicas.modelo.dao.mPractica;
 import practicas.modelo.dao.mTipoPractica;
@@ -34,6 +35,7 @@ public class ControladorPractica implements Serializable {
     private cPractica objPractica;
     private List<cPractica> lstPracticasSolicitadas;
     private cPractica selObjPractica;
+    private final cUsuario us = (cUsuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
 
     /**
      * Creates a new instance of ControladorPractica
@@ -113,7 +115,18 @@ public class ControladorPractica implements Serializable {
             objPractica.setObjEstadoPractica(new cEstadoPractica(2)); //2=Solicitada
             mPractica.actualizar(objPractica);
             cNotificacion obj = new cNotificacion();
-            obj.setMensaje("Estimado director, ");
+
+            //Para director
+            StringBuilder me = new StringBuilder();
+            me.append("Estimado director, el estudiante ");
+            me.append(us.getNombre());
+            me.append(" solicita la aprobación de sus practicas, ");
+            me.append(objPractica.getObjTipoPractica().getNombre());
+            me.append(", denominado ");
+            me.append(objPractica.getNombre());
+            me.append(".");
+
+            obj.setMensaje(me.toString());
             obj.setFechaGeneracion(new Date());
             obj.setObjUsuario(new cUsuario(2));
             obj.setObjPractica(objPractica);
