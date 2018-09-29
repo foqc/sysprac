@@ -17,42 +17,40 @@
 
     </h:head>
     <h:body>
-        <div id="loginContainer" class="container p-0">
-            <div id="loginMain" class="row">
-                <div id="loginMainLeft" class="col-xs-6">
+        <div class="loginContainer container p-0">
+            <div class="loginMain row">
+                <div class="loginMainLeft col-xs-6">
                     <div class="container text-xs-center h-100">
-                        <div id="escudoESPOCH" class="row">
+                        <div class="escudoESPOCH row">
                             <img src="cast/images/escudo_ESPOCH.png" alt="Escudo ESPOCH"/>
                         </div>
                     </div>
                 </div>
 
-                <div id="loginMainRight" class="col-xs-6">
+                <div class="loginMainRight col-xs-6">
                     <div class="container text-xs-center h-100">
-                        <div id="nombreSistema" class="row">
-                            <div id="nombre">
+                        <div class="nombreSistema row">
+                            <div class="nombre">
                                 Sistema de<br>
                                     Desarrollo Acad&eacute;mico</br>
                             </div>
                         </div>
-                        <div id="formContainer" class="row">
+                        <div class="formContainer row">
                             <div class="col-xs-12 text-xs-center">	
                                 <div class="row">
-                                    <div id="loginTitulo">Ingreso de Usuario</div>
-                                    <h:form id="formText">
+                                    <div class="loginTitulo">Ingreso de Usuario</div>
+                                    <h:form class="formText">
                                         <div>
-                                            <h:inputText  value="#{controladorLogin.objUsuario.cedula}"></h:inputText>
+                                            <h:inputText class="ddaCuenta" value="#{controladorLogin.objUsuario.cedula}"></h:inputText>
                                         </div>  
-
                                         <div>
-                                            <h:inputSecret value="#"></h:inputSecret>
+                                            <h:inputSecret class="ddaClave" value="#"></h:inputSecret>
                                         </div> 
-
-                                        <div id="formContainerButton">
-                                            <h:commandButton  value="Iniciar Sesión" action="#{controladorLogin.iniciarSesion()}" ></h:commandButton>
+                                        <div class="formContainerButton">
+                                            <h:commandButton  style="background: transparent; color: white;" value="Iniciar Sesión" action="#{controladorLogin.iniciarSesion()}" ></h:commandButton>
                                         </div> 
                                     </h:form>
-                                    <output id="loginError">
+                                    <output class="loginError">
                                     </output>
                                 </div>
                                 <div class="row">
@@ -61,7 +59,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="informacionESPOCH" class="row">
+                        <div class="informacionESPOCH row">
                             <hr>
                                 <i class="fa fa-map-marker" aria-hidden="true"></i> Panamericana Sur km 1 &#189;, Riobamba, Chimborazo, Ecuador
                                 <br>
