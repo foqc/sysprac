@@ -58,7 +58,7 @@ public class ControladorLogin implements Serializable {
                         redireccion = "_docente/dashboard?faces-redirect=true";
                         break;
                     case 3:
-                        redireccion = "_docente/dashboard?faces-redirect=true";
+                        redireccion = "_director/dashboard?faces-redirect=true";
                         break;
                     default:
                         break;

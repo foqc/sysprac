@@ -15,6 +15,7 @@ import javax.faces.context.FacesContext;
 import practicas.modelo.dao.mNotificacion;
 import practicas.modelo.dao.mPractica;
 import practicas.modelo.dao.mTipoPractica;
+import practicas.modelo.dao.mUsuario;
 import practicas.modelo.entidad.cEstadoNotificacion;
 import practicas.modelo.entidad.cEstadoPractica;
 import practicas.modelo.entidad.cNotificacion;
@@ -128,7 +129,7 @@ public class ControladorPractica implements Serializable {
 
             obj.setMensaje(me.toString());
             obj.setFechaGeneracion(new Date());
-            obj.setObjUsuario(new cUsuario(2));
+            obj.setObjUsuario(mUsuario.obtenerPorIdTipoUsuario(3)); //3=Director
             obj.setObjPractica(objPractica);
             obj.setObjTipoNotificacion(new cTipoNotificacion(2)); //2=Informativa
             obj.setObjEstadoNotificacion(new cEstadoNotificacion(1));

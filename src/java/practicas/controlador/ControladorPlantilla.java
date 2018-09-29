@@ -25,7 +25,7 @@ public class ControladorPlantilla implements Serializable {
             FacesContext context = FacesContext.getCurrentInstance();
             cUsuario us = (cUsuario) context.getExternalContext().getSessionMap().get("usuario");
             if (us == null) {
-                context.getExternalContext().redirect("./../permisos.xhtml");
+                context.getExternalContext().redirect("./../index.xhtml");
             }
         } catch (IOException e) {
             //log para guardar algun registro de un error 
