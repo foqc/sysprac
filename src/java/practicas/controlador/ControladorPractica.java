@@ -120,7 +120,7 @@ public class ControladorPractica implements Serializable {
             obj.setObjTipoNotificacion(new cTipoNotificacion(2)); //2=Informativa
             obj.setObjEstadoNotificacion(new cEstadoNotificacion(1));
             if (mNotificacion.insertarNotificacion(obj)) {
-                Util.infoMessage("Aviso: ", "Solicitud generada correctamnete");
+                Util.infoMessage("Aviso: ", "Solicitud generada correctamente");
             } else {
                 Util.errorMessage("Error: ", "Solicitud no generada");
             }

@@ -46,7 +46,8 @@
                                 <div class="col-xs-12 text-xs-center">	
                                     <div class="row">
                                         <div id="loginTitulo">Ingreso de Usuario</div>
-                                        <form id="formText" action="GeneralCN.jsp" autocomplete="off" method="POST">
+                                        
+                                        <form class="form-horizontal" role="form" jsf:rendered="true">
                                             <div>
                                                 <input type="text" id="ddaCuenta" name="cedula" placeholder="Cuenta" size="20" required>
                                             </div>
@@ -55,6 +56,7 @@
                                             </div>
                                             <div id="formContainerButton">
                                                 <button id="formButton" type="submit">Iniciar Sesión</button>
+                                               	<button type="submit" class="btn btn-default" jsf:action="#{controladorLogin.iniciarSesion()}" jsf:id="submit" jsf:actionlistener="#{loginBean.updateId}">Submit</button>
                                             </div>
                                         </form>
                                         <h:commandButton  value = "Click Me!" onclick = "alert('Hello World!');" />
