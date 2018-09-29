@@ -2,7 +2,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"  
                 xmlns:f="http://java.sun.com/jsf/core"  
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="../template/mainDocente.xhtml">
+                template="../template/mainDirector.xhtml">
     <ui:define name="libreriaEncabezado">  
         <!-- GLOBAL STYLES -->
         <!--END GLOBAL STYLES -->
@@ -16,7 +16,7 @@
             <h:dataTable class="table" value="#{controladorPractica.lstPracticasSolicitadas}" var="dato">
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Estudiante:"></h:outputText>
+                        <h:outputText value="Director:"></h:outputText>
                     </f:facet>
                     <h:outputText value="#{dato.objUsuario.nombre}"></h:outputText>
                 </h:column>
