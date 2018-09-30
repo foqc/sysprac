@@ -20,7 +20,7 @@ import practicas.modelo.entidad.cNotificacion;
 public class mNotificacion {
 
     public static List<cNotificacion> obetenerTodosPorIdUsuario(int idUsuario) throws Exception {
-        List<cNotificacion> lst = null;
+        List<cNotificacion> lst = new ArrayList<>();
         StringBuilder sql = new StringBuilder();
         try {
             sql.append("SELECT * FROM notificacion ");

@@ -6,6 +6,7 @@
 package practicas.controlador;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -31,6 +32,7 @@ public class ControladorNotificacion implements Serializable {
      * Creates a new instance of ControladorNotificacion
      */
     public ControladorNotificacion() {
+        lstNotifPorUsuario = new ArrayList<>();
     }
 
     public cUsuario getUs() {
@@ -39,6 +41,7 @@ public class ControladorNotificacion implements Serializable {
 
     @PostConstruct
     public void init() {
+        System.out.println("sdfsadfasdfasdfsdf: "+ us.getIdusuario());
         cargarNotificacionesPorIdUsuario(us.getIdusuario());
     }
 

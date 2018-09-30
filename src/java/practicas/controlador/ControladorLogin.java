@@ -8,6 +8,7 @@ package practicas.controlador;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import practicas.modelo.dao.mUsuario;
@@ -19,7 +20,7 @@ import practicas.recursos.Util;
  * @author Programador
  */
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class ControladorLogin implements Serializable {
 
     private cUsuario objUsuario;
