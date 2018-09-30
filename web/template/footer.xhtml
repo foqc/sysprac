@@ -51,8 +51,10 @@
                                 <h:outputText value="#{dato.nombre}"></h:outputText>
                             </h:column>
 
-                            <h:column>                                                 
-                                <button class="btn btn-success btn-xs" action="#{controladorPractica.asignar(dato)}">Asignar</button>
+                            <h:column>  
+                                
+                                <h:commandButton class="btn btn-success btn-xs" action="#{controladorPractica.asignar(dato)}" value="Asignar"></h:commandButton>
+                                        
                             </h:column>
 
                         </h:dataTable>

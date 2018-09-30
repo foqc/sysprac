@@ -149,6 +149,7 @@ public class ControladorPractica implements Serializable {
     }
 
     public void asignar(cUsuario objUserAsignado) {
+        
         try {
             selObjPractica.setObjEstadoPractica(new cEstadoPractica(3)); //3=Asignado
             mPractica.actualizar(selObjPractica);
@@ -194,6 +195,7 @@ public class ControladorPractica implements Serializable {
         } catch (Exception e) {
             Util.fatalMessage("Error (Try-Catch) (asignar): ", e.getMessage());
         }
+        
     }
 
     public void aprobar() {
