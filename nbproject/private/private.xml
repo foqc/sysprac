@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/foqc/Documents/NodeJs/sysprac/web/resources/assets/js/modal.js</file>
             <file>file:/C:/Users/foqc/Documents/NodeJs/sysprac/web/template/mainDocente.xhtml</file>
             <file>file:/C:/Users/foqc/Documents/NodeJs/sysprac/web/template/header.xhtml</file>
@@ -12,6 +13,9 @@
             <file>file:/C:/Users/foqc/Documents/NodeJs/sysprac/web/template/mainDirector.xhtml</file>
             <file>file:/C:/Users/foqc/Documents/NodeJs/sysprac/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/foqc/Documents/NodeJs/sysprac/web/template/footer.xhtml</file>
+=======
+            <file>file:/C:/Users/Jhonathan/Desktop/Movil/sysprac/nbproject/build-impl.xml</file>
+>>>>>>> f193563e8f4da9bf78e70af7c698c833669b97f0
         </group>
     </open-files>
 </project-private>

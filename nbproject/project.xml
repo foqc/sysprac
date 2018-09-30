@@ -16,7 +16,15 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
+<<<<<<< HEAD
                     <file>${libs.Java-EE-GlassFish-v3-Prelude.classpath}</file>
+=======
+<<<<<<< HEAD
+                    <file>${libs.PostgreSQLDriver.classpath}</file>
+=======
+                    <file>${file.reference.postgresql-42.1.4.jar}</file>
+>>>>>>> d30a4a43a95aa979408425492c38b308d5de6ab7
+>>>>>>> f193563e8f4da9bf78e70af7c698c833669b97f0
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
