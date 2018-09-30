@@ -15,7 +15,11 @@
                     <file>${&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD}</file>
                 </library>
                 <library dirs="200">
+<<<<<<< HEAD
                     <file>${libs.PostgreSQLDriver.classpath}</file>
+=======
+                    <file>${file.reference.postgresql-42.1.4.jar}</file>
+>>>>>>> d30a4a43a95aa979408425492c38b308d5de6ab7
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>

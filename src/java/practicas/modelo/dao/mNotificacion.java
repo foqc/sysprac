@@ -71,4 +71,20 @@ public class mNotificacion {
 
     }
 
+    public static boolean actualizarEstadoPorId(int idNotificacion, int idEstadoNotificacion) throws Exception {
+        boolean resp = false;
+        StringBuilder sql = new StringBuilder();
+        try {
+            sql.append("update notificacion ");
+            sql.append("set idestadonotificacion=? ");
+            sql.append("where idnotificacion=?;");
+            ArrayList<Parametro> lstParam = new ArrayList<>();
+            lstParam.add(new Parametro(1, idEstadoNotificacion));
+            lstParam.add(new Parametro(2, idNotificacion));
+            resp = AccesoDatos.ejecutarComando(sql.toString(), lstParam);
+        } catch (Exception e) {
+            throw e;
+        }
+        return resp;
+    }
 }

@@ -115,6 +115,11 @@ body{
 
 .dropdown-item-size{
     cursor: pointer;
+    border-bottom: solid #bdc2c7 1px;
+}
+
+.dropdown-item-size :hover{
+   background-color: red !important;
 }
 
 .btn .notify-icon{
@@ -137,4 +142,12 @@ body{
   .praxis-title {
     font-size: 18px;
   }
+}
+
+.color-2{
+    background-color: #d6e6f5;
+}
+
+.color-3{
+    background-color: #f8f9fa;
 }
