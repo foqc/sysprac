@@ -41,7 +41,7 @@ public class ControladorNotificacion implements Serializable {
 
     @PostConstruct
     public void init() {
-        System.out.println("sdfsadfasdfasdfsdf: "+ us.getIdusuario());
+        System.out.println("sdfsadfasdfasdfsdf: " + us.getIdusuario());
         cargarNotificacionesPorIdUsuario(us.getIdusuario());
     }
 
@@ -59,5 +59,16 @@ public class ControladorNotificacion implements Serializable {
         } catch (Exception e) {
             Util.fatalMessage("Error (Try-Catch) (cargarNotificacionesPorIdUsuario): ", e.getMessage());
         }
+    }
+
+    public void actualizarEstado(int idNotificacion) {
+        try {
+            if (mNotificacion.actualizarEstadoPorId(idNotificacion, 2)) {
+                Util.infoMessage("Aviso", "Actualizado correctamente");
+            }
+        } catch (Exception e) {
+            Util.fatalMessage("Error (Try-Catch) (actualizarEstado): ", e.getMessage());
+        }
+
     }
 }
