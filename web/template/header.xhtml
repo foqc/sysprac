@@ -23,10 +23,10 @@
                 <button class="btn btn-transparent dropdown-toggle dropdown-toggle-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                     <i class="material-icons md-24 md-light">add_alert</i>
-                    <span class="badge badge-secondary notify-icon">#{controladorNotificacion ne null and controladorNotificacion.lstNotifPorUsuario.size() > 0 ? controladorNotificacion.lstNotifPorUsuario.size() : ''}</span>
+                    <span class="badge badge-secondary notify-icon">#{controladorNotificacion.lstNotifPorUsuario.size() > 0 ? controladorNotificacion.lstNotifPorUsuario.size() : ''}</span>
                 </button>
                 <div class="dropdown-menu notify-dropdown" aria-labelledby="dropdownMenuButton">
-                    <c:if test="#{controladorNotificacion != null and controladorNotificacion.lstNotifPorUsuario.size() eq 0}" >
+                    <c:if test="#{controladorNotificacion.lstNotifPorUsuario.size() eq 0}" >
                         <a class="dropdown-item" href="#">No hay notificaciones</a>
                     </c:if>
                     <c:forEach var="notificacion" items="#{controladorNotificacion.lstNotifPorUsuario}">
